@@ -12,7 +12,8 @@
     "02_transmission_analysis/recompute_three_seeds.py",
     "02_transmission_analysis/recompute_model_seed_consistency.py",
     "03_selection_analysis/recompute_selection.py",
-    "04_figure_generation/plot_three_seeds.py"
+    "04_figure_generation/plot_three_seeds.py",
+    "02_transmission_analysis/recompute_dataset_influence.py"
   ],
   "analysis_csvs_reproduced": [
     "02_transmission_analysis/anchor_sensitivity.csv",
@@ -40,7 +41,8 @@
     "03_selection_analysis/paired_tests_with_holm.csv",
     "03_selection_analysis/policy_strata.csv",
     "03_selection_analysis/policy_summary.csv",
-    "03_selection_analysis/policy_units_4608.csv"
+    "03_selection_analysis/policy_units_4608.csv",
+    "02_transmission_analysis/leave_one_dataset_out.csv"
   ],
   "csv_comparison_tolerance": {
     "rtol": 1e-10,
@@ -60,12 +62,14 @@
     "02_transmission_analysis/global_ie_medians.csv": "209760727737659c5bf36ce80122981d8ca0cd57319e7def9056e9f35304ac7b",
     "02_transmission_analysis/headline_and_dataset.csv": "0ef5d186fb833e040c440b149502fcb669740651dfd23270cd8908915935a54e",
     "02_transmission_analysis/heatmap.csv": "7df08fbf5d5db97e3efa5dc78e7806d55c42ed163120432452b3cef3cee4232e",
+    "02_transmission_analysis/leave_one_dataset_out.csv": "fe66a1c8926f216f653c6881ddc496aae5e20fd3873ae1feefd28099f0335f1d",
     "02_transmission_analysis/main_contrasts_2304.csv": "34a0d88a9c9ba7a29897418a7cbf4ad5add72d32ee97d83392f70f0b7819bc38",
     "02_transmission_analysis/method_performance.csv": "b8d91491186ab60eb3f5020f2587397da9cf38f4422db8c681f56bdb0a6cd98b",
     "02_transmission_analysis/method_ranking.csv": "fbb50f46671148466c30932cd2a648896761b6154ea6e37f926c8301712a3d49",
     "02_transmission_analysis/model_seed_consistency.csv": "41e9f9fe656a6a4444a424d062a7e5a2fd4b5b77a91851fe1d238494510b8695",
     "02_transmission_analysis/paired_comparisons.csv": "e4f1e92cafed220b239f1a0436fec5c0f1ce70060f478166456adbe8feb551c8",
     "02_transmission_analysis/ranking_summary.csv": "a06e8f5001a3b9e46bcae2bb7771829a2ce878723e28267e1a5055daaccb6d6f",
+    "02_transmission_analysis/recompute_dataset_influence.py": "17cc6b7922ea78e51ce6848dabd7667e14bdee6b969e00a2cf977134bd69f6a7",
     "02_transmission_analysis/recompute_model_seed_consistency.py": "44eae5b4d6ef63f22c8da2cbb86e76f5d882c3d2e39eb03e3e77e3f35c3a9ef5",
     "02_transmission_analysis/recompute_three_seeds.py": "13da8d72e04fdf6fdbed5488d061bd6ac1163dc3d8aa4ceba4c55f1e335a6cfc",
     "02_transmission_analysis/seed_consistency.csv": "1eb42835acf199490ca2320f3d3a46dbf6f219c4e75456d183b2210cf63167ee",
@@ -88,13 +92,16 @@
     "04_figure_generation/fig3.png": "31bd4dcf920c705bc2e5be1adcefb9f8269569bdc41fa96870fef14bec2df6aa",
     "04_figure_generation/fig4.png": "05c760db1eab8dde32abd3f887730b11f0a9342e19839429bde2c9fbaa1081e2",
     "04_figure_generation/plot_three_seeds.py": "c09f80362118eb83ff66308578854de86d46bcc031aad021647379ae2c8c0576",
+    "05_validation_manifests/concise_revision_validation.json": "8a555e4297646e48389ea5f11b97391be85499dd111251292a865ad1d8f2e32b",
     "05_validation_manifests/editorial_revision_20261018.json": "3e3091bfbf8b31ca74adebda5b1f285efeaf6069d56118da58ad8bea17eefd86",
     "05_validation_manifests/revision_validation.json": "48031e83fb5c1ae49a3091a40ab383c536daf358954ed047f635ee71c8fefe99",
     "05_validation_manifests/source_code_manifest.json": "fd90d9310a1d13d3e6c18c2a899758b689f85fb6b1ef66a02b36e68f2a9ea1d1",
     "05_validation_manifests/source_metadata_validation.json": "eaed95a24766f2eda80d41c7d648f17fd143e8531284ceccc29657a7787a38a0",
-    "README.md": "1a22aaeea9c0c4cfcd1b64841f0435da567f8db21790b2072de6c68bc46580af",
+    "README.md": "5c3a1b3addf03bc157c11cf9b1250c8ec490e1099b14b2ebbf922d45d7323001",
     "requirements.txt": "3a04bd363d94afb50752e602f488965b34444a103d925ce67afb7fa6e27f8116"
   },
   "documentation_updated_at": "2026-10-18T11:52:03",
-  "documentation_update": "Project overview added; detailed reproduction guide corrected. Analysis scripts, metrics, CSV outputs and figures are unchanged."
+  "documentation_update": "Project overview added; detailed reproduction guide corrected. Analysis scripts, metrics, CSV outputs and figures are unchanged.",
+  "manuscript_revision_updated_at": "2026-10-18T12:04:36",
+  "manuscript_revision": "Concise manuscript revision adds an archived-metric dataset influence check. No original run, existing CSV, or figure was changed. No model training was performed."
 }

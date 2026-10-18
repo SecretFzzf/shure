@@ -1,0 +1,52 @@
+{
+  "updated_at": "2026-10-18T12:03:55",
+  "scope": "Concise editorial revision and archived-metric dataset influence analysis; no new training",
+  "pdf_pages_before": 41,
+  "pdf_pages_after": 32,
+  "section_tex_english_tokens_before": 10088,
+  "section_tex_english_tokens_after": 7129,
+  "section_tex_token_reduction_pct": 29.33187946074544,
+  "token_count_note": "Same regex over section TeX sources, including headings, labels and table text; excludes bibliography. This is a consistent size proxy, not a journal word-count certification.",
+  "active_citation_keys": 34,
+  "all_citation_keys_resolved": true,
+  "all_table_labels_referenced": 17,
+  "original_tables_and_figures_preserved_verbatim": 20,
+  "undefined_references": 0,
+  "overfull_boxes": 0,
+  "underfull_notes": 4,
+  "original_protected_files_sha256_unchanged": 47,
+  "new_dataset_influence_script_runs_successfully": true,
+  "new_dataset_influence_verified_against_archived_contrasts": true,
+  "dataset_omission_pure_inversion_range_pct": [
+    17.97752808988764,
+    22.532588454376164
+  ],
+  "dataset_omission_tau_median_range": [
+    0.0394109043466997,
+    0.058781916462798206
+  ],
+  "model_order_preserved_in_each_omission": [
+    "LSTM",
+    "PatchTST",
+    "DLinear"
+  ],
+  "new_training_performed": false,
+  "imputer_fit_seeds_unchanged": [
+    42
+  ],
+  "forecasting_seeds_unchanged": [
+    42,
+    123,
+    2026
+  ],
+  "CSDI_experiments_performed": false,
+  "larger_datasets_added": false,
+  "causal_mechanisms_tested": false,
+  "external_sources_checked": [
+    "https://arxiv.org/abs/2107.03502",
+    "https://github.com/ermongroup/CSDI",
+    "https://arxiv.org/abs/2406.12747"
+  ],
+  "pdf_render_and_visual_review": "All 32 pages rendered; page overviews inspected and final related-work, seed/selection, conclusion/limitations and dataset-influence pages inspected at full size. No clipping or overlap found.",
+  "pdf_sha256": "3093a25554e361ba82177a89f8f47ae1f173c951b71ea4c879c498c5ae185266"
+}

@@ -45,6 +45,8 @@ analysis_support_upload/
 │   ├── strata.csv                        # Stratified pure inversion rates and cluster bootstrap CIs (Table 7)
 │   ├── paired_comparisons.csv            # Paired sign-flip randomization tests and Holm-adjusted p-values (Table 8)
 │   ├── recompute_model_seed_consistency.py # Model-stratified seed-summary script
+│   ├── recompute_dataset_influence.py    # Leave-one-dataset-out composition check
+│   ├── leave_one_dataset_out.csv         # Full grid and four dataset-omission summaries
 │   ├── model_seed_consistency.csv         # Model-specific sign agreement and inversion stability
 │   ├── seed_consistency.csv              # Cross-seed sign agreement and inversion stability (Table 9)
 │   ├── seed_model_statistics.csv         # Per-seed, per-dataset, per-model breakdown (Appendix Table E.16)
@@ -79,7 +81,8 @@ analysis_support_upload/
     ├── source_metadata_validation.json   # SHA-256 checksums of the 36 per-seed/per-model raw result CSVs
     ├── revision_validation.json          # Original numerical verification summary
     ├── editorial_revision_20261018.json  # Manuscript editorial verification record
-    └── github_publication_validation.json # Reproduction checks and package checksums
+    ├── github_publication_validation.json # Reproduction checks and package checksums
+    └── concise_revision_validation.json  # Concise manuscript and dataset-influence verification
 ```
 
 ---
@@ -92,7 +95,7 @@ Install dependencies (`numpy`, `pandas`, `matplotlib`):
 python -m pip install -r requirements.txt
 ```
 
-Run the four scripts in order from the root of `analysis_support_upload/` (each script defaults to reading from `01_raw_data/` or `02_transmission_analysis/` and writing outputs into its own folder):
+Run the five scripts in order from the root of `analysis_support_upload/` (each script defaults to reading from `01_raw_data/` or `02_transmission_analysis/` and writing outputs into its own folder):
 
 ```bash
 # 1. Recompute main transmission & inversion tables (Tables 2–9 & Table E.16)
@@ -101,10 +104,13 @@ python 02_transmission_analysis/recompute_three_seeds.py
 # 2. Recompute model-stratified seed consistency (Section 4.5)
 python 02_transmission_analysis/recompute_model_seed_consistency.py
 
-# 3. Recompute imputer-selection policies & matched-missingness check (Section 4.4 & Table 10)
+# 3. Recompute the dataset influence check (Appendix Table F.17)
+python 02_transmission_analysis/recompute_dataset_influence.py
+
+# 4. Recompute imputer-selection policies & matched-missingness check (Section 4.4 & Table 10)
 python 03_selection_analysis/recompute_selection.py
 
-# 4. Regenerate manuscript Figures 1–4
+# 5. Regenerate manuscript Figures 1–4
 python 04_figure_generation/plot_three_seeds.py
 ```
 
@@ -126,6 +132,7 @@ python 04_figure_generation/plot_three_seeds.py
 | **Section 4.5** (Model-stratified seed consistency) | `02_transmission_analysis/model_seed_consistency.csv` |
 | **Section 4.4** (Matched-Mechanism Check, $n=615$) | `03_selection_analysis/matched_missingness.csv` |
 | **Table 10 & Section 4.6** (Selection Policies) | `03_selection_analysis/policy_summary.csv` & `03_selection_analysis/paired_tests_with_holm.csv` |
+| **Appendix Table F.17** (Dataset influence check) | `02_transmission_analysis/leave_one_dataset_out.csv` |
 | **Appendix Table E.16** (Seed × Model Breakdown) | `02_transmission_analysis/seed_model_statistics.csv` |
 | **Figures 1–4** | `04_figure_generation/fig1.png` – `fig4.png` |
 
@@ -146,3 +153,12 @@ use all 768 non-Mean configurations per model; pure-inversion proportions use
 recorded forecasting seeds conditional on the fixed upstream inputs.
 
 These summaries are computed from archived metrics and require no model training.
+
+## 5. Dataset influence check
+
+`recompute_dataset_influence.py` independently averages the archived 8,640
+run-level metrics by configuration, forms the Mean contrasts at epsilon 0.01,
+and reports the full grid and each dataset omission. Its output contains valid
+counts, inversion counts and rates, median transmission ratios, relative error
+changes, and model-specific inversion rates. It uses no additional model fitting
+and makes no held-out-dataset prediction claim.

@@ -40,7 +40,7 @@ Pure inversion means $\Delta IE < 0$ and $\Delta FE > 0$. The primary
 MAE analysis excludes contrasts with $|\Delta IE| \leq 0.01$ to limit
 small-denominator instability. Forecasting errors are averaged across three seeds
 within each configuration before these comparisons. Relative error changes,
-threshold sensitivity, seed consistency, and imputer-selection policies provide
+threshold sensitivity, seed consistency, dataset influence checks, and imputer-selection policies provide
 complementary views of downstream performance.
 
 The experimental protocol uses historical-window inputs: no observation after
@@ -71,13 +71,18 @@ in the manuscript.
 | Median relative change in forecasting MAE | -2.90% |
 | Median transmission ratio | 0.0449 |
 | Pure inversion among valid contrasts | 415 / 2,127 (19.51%) |
+| Pure inversion after omitting each dataset in turn | 17.98%-22.53% |
 | Forecasting-error-change sign agreement across all three seeds | 1,720 / 2,304 (74.65%) |
 
-The first four results use 2,127 valid non-Mean comparisons after averaging
-forecasting errors across seeds. The seed-agreement result uses all 2,304
+The primary error, ratio, and inversion summaries use 2,127 valid non-Mean
+comparisons after averaging forecasting errors across seeds. The seed-agreement result uses all 2,304
 non-Mean configurations, with upstream inputs held fixed across forecasting
 seeds. Pure inversion also varies by forecaster: 34.41% for LSTM, 6.91% for
 DLinear, and 17.21% for PatchTST, each among its valid comparisons.
+
+Omitting each dataset in turn preserves the ordering of model-specific inversion
+rates (LSTM > PatchTST > DLinear). This checks sensitivity to the composition of
+the existing dataset grid; it is not a held-out-dataset forecasting experiment.
 
 These results show that reconstruction accuracy alone is insufficient to assess
 downstream forecasting performance under the evaluated settings. The
@@ -107,6 +112,9 @@ python 02_transmission_analysis/recompute_three_seeds.py
 
 # Forecasting-seed consistency by model
 python 02_transmission_analysis/recompute_model_seed_consistency.py
+
+# Influence of each dataset on pooled summaries
+python 02_transmission_analysis/recompute_dataset_influence.py
 
 # Imputer-selection policies and matched-missingness comparisons
 python 03_selection_analysis/recompute_selection.py
