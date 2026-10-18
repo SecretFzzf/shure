@@ -92,7 +92,9 @@
     "05_validation_manifests/revision_validation.json": "48031e83fb5c1ae49a3091a40ab383c536daf358954ed047f635ee71c8fefe99",
     "05_validation_manifests/source_code_manifest.json": "fd90d9310a1d13d3e6c18c2a899758b689f85fb6b1ef66a02b36e68f2a9ea1d1",
     "05_validation_manifests/source_metadata_validation.json": "eaed95a24766f2eda80d41c7d648f17fd143e8531284ceccc29657a7787a38a0",
-    "README.md": "01f50f4e3cd256e385b228d3b032249af209440e037ec8a9dda64f5ce520ca08",
+    "README.md": "1a22aaeea9c0c4cfcd1b64841f0435da567f8db21790b2072de6c68bc46580af",
     "requirements.txt": "3a04bd363d94afb50752e602f488965b34444a103d925ce67afb7fa6e27f8116"
-  }
+  },
+  "documentation_updated_at": "2026-10-18T11:52:03",
+  "documentation_update": "Project overview added; detailed reproduction guide corrected. Analysis scripts, metrics, CSV outputs and figures are unchanged."
 }

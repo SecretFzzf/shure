@@ -1,19 +1,23 @@
-# Statistical Analysis & Figure Reproduction Package
+# Reproduction Guide
 
-This directory contains the complete, self-contained data and scripts required to reproduce all statistical analyses, tables, and figures reported in the manuscript. Files are organized into five functional folders so that each analysis script resides alongside its corresponding outputs.
+## Better Imputation Does Not Guarantee Better Forecasting
 
-Repository: <https://github.com/SecretFzzf/shure>
+**Transmission Efficiency in Two-Step Time Series Pipelines**
 
-This package reproduces numerical analyses from archived experimental metrics.
-It does not include the upstream preprocessing, imputer or forecasting training
-pipeline, raw time-series datasets, intermediate imputation arrays, or trained
-model weights. In particular, neither raw nor processed SWaT time series are
-redistributed. The folder name `01_raw_data` refers to recorded per-run metrics,
-not original time-series observations.
+This guide describes the numerical reproduction materials for the study of
+reconstruction-forecasting mismatch in two-step time series pipelines. The
+package provides archived run-level metrics and scripts for the manuscript's
+transmission, seed-stability, and imputer-selection analyses and Figures 1-4.
 
-The source and metadata manifests in `05_validation_manifests/` are provenance
-records for the original experiments. A listed upstream source file or per-seed
-result file is not necessarily included in this analysis package.
+For the research overview, experimental design, and main findings, see the
+[project README](../README.md). Repository: <https://github.com/SecretFzzf/shure>.
+
+The `01_raw_data` directory contains per-run metrics, not original time-series
+observations. This release covers numerical analysis and plotting; upstream
+preprocessing and training code, raw time series, intermediate imputation arrays,
+and model weights are outside its scope. Neither raw nor processed SWaT time
+series are redistributed. Historical source and metadata manifests document the
+original experiments and may refer to upstream files outside this package.
 
 ---
 
@@ -40,6 +44,8 @@ analysis_support_upload/
 │   ├── anchor_sensitivity.csv            # Sensitivity to baseline anchor choice: Mean vs. Spline (Table 6)
 │   ├── strata.csv                        # Stratified pure inversion rates and cluster bootstrap CIs (Table 7)
 │   ├── paired_comparisons.csv            # Paired sign-flip randomization tests and Holm-adjusted p-values (Table 8)
+│   ├── recompute_model_seed_consistency.py # Model-stratified seed-summary script
+│   ├── model_seed_consistency.csv         # Model-specific sign agreement and inversion stability
 │   ├── seed_consistency.csv              # Cross-seed sign agreement and inversion stability (Table 9)
 │   ├── seed_model_statistics.csv         # Per-seed, per-dataset, per-model breakdown (Appendix Table E.16)
 │   ├── seed_specific_statistics.csv      # Per-seed overall and dataset-level statistics
@@ -71,7 +77,9 @@ analysis_support_upload/
 └── 05_validation_manifests/              # Reproducibility manifests and SHA-256 checksums
     ├── source_code_manifest.json         # SHA-256 checksums of the experimental source scripts
     ├── source_metadata_validation.json   # SHA-256 checksums of the 36 per-seed/per-model raw result CSVs
-    └── revision_validation.json          # End-to-end verification summary of all manuscript tables and figures
+    ├── revision_validation.json          # Original numerical verification summary
+    ├── editorial_revision_20261018.json  # Manuscript editorial verification record
+    └── github_publication_validation.json # Reproduction checks and package checksums
 ```
 
 ---
@@ -81,19 +89,22 @@ analysis_support_upload/
 Install dependencies (`numpy`, `pandas`, `matplotlib`):
 
 ```bash
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
 
-Run the three scripts from the root of `analysis_support_upload/` (each script defaults to reading from `01_raw_data/` or `02_transmission_analysis/` and writing outputs into its own folder):
+Run the four scripts in order from the root of `analysis_support_upload/` (each script defaults to reading from `01_raw_data/` or `02_transmission_analysis/` and writing outputs into its own folder):
 
 ```bash
 # 1. Recompute main transmission & inversion tables (Tables 2–9 & Table E.16)
 python 02_transmission_analysis/recompute_three_seeds.py
 
-# 2. Recompute imputer-selection policies & matched-missingness check (Section 4.4 & Table 10)
+# 2. Recompute model-stratified seed consistency (Section 4.5)
+python 02_transmission_analysis/recompute_model_seed_consistency.py
+
+# 3. Recompute imputer-selection policies & matched-missingness check (Section 4.4 & Table 10)
 python 03_selection_analysis/recompute_selection.py
 
-# 3. Regenerate manuscript Figures 1–4
+# 4. Regenerate manuscript Figures 1–4
 python 04_figure_generation/plot_three_seeds.py
 ```
 
@@ -112,12 +123,13 @@ python 04_figure_generation/plot_three_seeds.py
 | **Table 7** (Stratified Inversion Rates) | `02_transmission_analysis/strata.csv` |
 | **Table 8** (Paired Architecture/Imputer Tests) | `02_transmission_analysis/paired_comparisons.csv` |
 | **Table 9** (Three-Seed Consistency) | `02_transmission_analysis/seed_consistency.csv` |
+| **Section 4.5** (Model-stratified seed consistency) | `02_transmission_analysis/model_seed_consistency.csv` |
 | **Section 4.4** (Matched-Mechanism Check, $n=615$) | `03_selection_analysis/matched_missingness.csv` |
 | **Table 10 & Section 4.6** (Selection Policies) | `03_selection_analysis/policy_summary.csv` & `03_selection_analysis/paired_tests_with_holm.csv` |
 | **Appendix Table E.16** (Seed × Model Breakdown) | `02_transmission_analysis/seed_model_statistics.csv` |
 | **Figures 1–4** | `04_figure_generation/fig1.png` – `fig4.png` |
 
-## 4. Model-stratified forecasting-seed summary (editorial revision, 2026-10-18)
+## 4. Model-stratified forecasting-seed analysis
 
 Section 4.5 additionally reports forecasting-error-change sign agreement and
 all-three-seed pure inversion separately for DLinear, LSTM and PatchTST.
@@ -133,5 +145,4 @@ use all 768 non-Mean configurations per model; pure-inversion proportions use
 709 valid contrasts per model. These are descriptive statistics of the three
 recorded forecasting seeds conditional on the fixed upstream inputs.
 
-This addition recomputes summaries from archived metrics; it performs no model
-training and does not alter the original result rows or existing analysis CSVs.
+These summaries are computed from archived metrics and require no model training.
