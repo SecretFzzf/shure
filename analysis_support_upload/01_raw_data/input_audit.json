@@ -1,0 +1,308 @@
+{
+  "rows": 8640,
+  "duplicate_keys": 0,
+  "missing": [],
+  "extra": [],
+  "issues": [],
+  "ie_inconsistent_groups": 0,
+  "configs": {
+    "ETTh1 / DLinear": [
+      {
+        "batch_size": 128,
+        "grad_clip_norm": 1.0,
+        "learning_rate": 0.001,
+        "loss": "masked_mse",
+        "lr_scheduler": "none",
+        "max_epochs": 100,
+        "min_delta": 1e-06,
+        "num_workers": 12,
+        "optimizer": "Adam",
+        "patience": 20,
+        "weight_decay": 0.0
+      }
+    ],
+    "ETTh1 / LSTM": [
+      {
+        "batch_size": 128,
+        "grad_clip_norm": 1.0,
+        "learning_rate": 0.0001,
+        "loss": "masked_mse",
+        "lr_scheduler": "none",
+        "max_epochs": 100,
+        "min_delta": 1e-06,
+        "num_workers": 12,
+        "optimizer": "Adam",
+        "patience": 20,
+        "weight_decay": 0.0
+      }
+    ],
+    "ETTh1 / PatchTST": [
+      {
+        "batch_size": 128,
+        "grad_clip_norm": 1.0,
+        "learning_rate": 0.0001,
+        "loss": "masked_mse",
+        "lr_scheduler": "none",
+        "max_epochs": 100,
+        "min_delta": 1e-06,
+        "num_workers": 12,
+        "optimizer": "Adam",
+        "patience": 20,
+        "weight_decay": 0.0
+      }
+    ],
+    "KDD-Beijing / DLinear": [
+      {
+        "allow_tf32": true,
+        "batch_size": 128,
+        "cudnn_benchmark": false,
+        "cudnn_deterministic": true,
+        "epoch_resume": false,
+        "gradient_clip_norm": 1.0,
+        "learning_rate": 0.001,
+        "max_epochs": 100,
+        "min_delta": 1e-06,
+        "num_workers": 4,
+        "optimizer": "Adam",
+        "patience": 20,
+        "sample_order": "seeded_shuffle",
+        "scheduler": null,
+        "stopping_metric": "validation_cell_MSE",
+        "train_loss": "masked_cell_MSE",
+        "weight_decay": 0.0
+      }
+    ],
+    "KDD-Beijing / LSTM": [
+      {
+        "allow_tf32": true,
+        "batch_size": 128,
+        "cudnn_benchmark": false,
+        "cudnn_deterministic": true,
+        "epoch_resume": false,
+        "gradient_clip_norm": 1.0,
+        "learning_rate": 0.0001,
+        "max_epochs": 100,
+        "min_delta": 1e-06,
+        "num_workers": 4,
+        "optimizer": "Adam",
+        "patience": 20,
+        "sample_order": "seeded_shuffle",
+        "scheduler": null,
+        "stopping_metric": "validation_cell_MSE",
+        "train_loss": "masked_cell_MSE",
+        "weight_decay": 0.0
+      }
+    ],
+    "KDD-Beijing / PatchTST": [
+      {
+        "allow_tf32": true,
+        "batch_size": 32,
+        "cudnn_benchmark": false,
+        "cudnn_deterministic": true,
+        "epoch_resume": false,
+        "gradient_clip_norm": 1.0,
+        "learning_rate": 0.0001,
+        "max_epochs": 100,
+        "min_delta": 1e-06,
+        "num_workers": 4,
+        "optimizer": "Adam",
+        "patience": 20,
+        "sample_order": "seeded_shuffle",
+        "scheduler": null,
+        "stopping_metric": "validation_cell_MSE",
+        "train_loss": "masked_cell_MSE",
+        "weight_decay": 0.0
+      }
+    ],
+    "SWaT / DLinear": [
+      {
+        "allow_tf32": true,
+        "batch_size": 128,
+        "cudnn_benchmark": false,
+        "cudnn_deterministic": true,
+        "epoch_resume": false,
+        "gradient_clip_norm": 1.0,
+        "learning_rate": 0.001,
+        "max_epochs": 100,
+        "min_delta": 1e-06,
+        "num_workers": 4,
+        "optimizer": "Adam",
+        "patience": 20,
+        "sample_order": "seeded_shuffle",
+        "scheduler": null,
+        "stopping_metric": "validation_cell_MSE",
+        "train_loss": "masked_cell_MSE",
+        "weight_decay": 0.0
+      }
+    ],
+    "SWaT / LSTM": [
+      {
+        "allow_tf32": true,
+        "batch_size": 128,
+        "cudnn_benchmark": false,
+        "cudnn_deterministic": true,
+        "epoch_resume": false,
+        "gradient_clip_norm": 1.0,
+        "learning_rate": 0.0001,
+        "max_epochs": 100,
+        "min_delta": 1e-06,
+        "num_workers": 4,
+        "optimizer": "Adam",
+        "patience": 20,
+        "sample_order": "seeded_shuffle",
+        "scheduler": null,
+        "stopping_metric": "validation_cell_MSE",
+        "train_loss": "masked_cell_MSE",
+        "weight_decay": 0.0
+      }
+    ],
+    "SWaT / PatchTST": [
+      {
+        "allow_tf32": true,
+        "batch_size": 128,
+        "cudnn_benchmark": false,
+        "cudnn_deterministic": true,
+        "epoch_resume": false,
+        "gradient_clip_norm": 1.0,
+        "learning_rate": 0.0001,
+        "max_epochs": 100,
+        "min_delta": 1e-06,
+        "num_workers": 4,
+        "optimizer": "Adam",
+        "patience": 20,
+        "sample_order": "seeded_shuffle",
+        "scheduler": null,
+        "stopping_metric": "validation_cell_MSE",
+        "train_loss": "masked_cell_MSE",
+        "weight_decay": 0.0
+      }
+    ],
+    "Weather / DLinear": [
+      {
+        "allow_tf32": true,
+        "batch_size": 128,
+        "cudnn_benchmark": false,
+        "cudnn_deterministic": true,
+        "epoch_resume": false,
+        "gradient_clip_norm": 1.0,
+        "learning_rate": 0.001,
+        "max_epochs": 100,
+        "min_delta": 1e-06,
+        "num_workers": 4,
+        "optimizer": "Adam",
+        "patience": 20,
+        "sample_order": "seeded_shuffle",
+        "scheduler": null,
+        "stopping_metric": "validation_cell_MSE",
+        "train_loss": "masked_cell_MSE",
+        "weight_decay": 0.0
+      }
+    ],
+    "Weather / LSTM": [
+      {
+        "allow_tf32": true,
+        "batch_size": 128,
+        "cudnn_benchmark": false,
+        "cudnn_deterministic": true,
+        "epoch_resume": false,
+        "gradient_clip_norm": 1.0,
+        "learning_rate": 0.0001,
+        "max_epochs": 100,
+        "min_delta": 1e-06,
+        "num_workers": 4,
+        "optimizer": "Adam",
+        "patience": 20,
+        "sample_order": "seeded_shuffle",
+        "scheduler": null,
+        "stopping_metric": "validation_cell_MSE",
+        "train_loss": "masked_cell_MSE",
+        "weight_decay": 0.0
+      }
+    ],
+    "Weather / PatchTST": [
+      {
+        "allow_tf32": true,
+        "batch_size": 128,
+        "cudnn_benchmark": false,
+        "cudnn_deterministic": true,
+        "epoch_resume": false,
+        "gradient_clip_norm": 1.0,
+        "learning_rate": 0.0001,
+        "max_epochs": 100,
+        "min_delta": 1e-06,
+        "num_workers": 4,
+        "optimizer": "Adam",
+        "patience": 20,
+        "sample_order": "seeded_shuffle",
+        "scheduler": null,
+        "stopping_metric": "validation_cell_MSE",
+        "train_loss": "masked_cell_MSE",
+        "weight_decay": 0.0
+      }
+    ]
+  },
+  "variants": {
+    "ETTh1 / DLinear": [
+      "DLinear_official_LTSF-Linear_individual"
+    ],
+    "ETTh1 / LSTM": [
+      "LSTM_project_hidden64_layers2"
+    ],
+    "ETTh1 / PatchTST": [
+      "PatchTST_official_supervised"
+    ],
+    "KDD-Beijing / DLinear": [
+      "DLinear_official_individual_decomposition25"
+    ],
+    "KDD-Beijing / LSTM": [
+      "LSTM_project_hidden64_layers2"
+    ],
+    "KDD-Beijing / PatchTST": [
+      "PatchTST_official_supervised_RevIN"
+    ],
+    "SWaT / DLinear": [
+      "DLinear_official_individual_decomposition25"
+    ],
+    "SWaT / LSTM": [
+      "LSTM_project_hidden64_layers2"
+    ],
+    "SWaT / PatchTST": [
+      "PatchTST_official_supervised_RevIN"
+    ],
+    "Weather / DLinear": [
+      "DLinear_official_individual_decomposition25"
+    ],
+    "Weather / LSTM": [
+      "LSTM_project_hidden64_layers2"
+    ],
+    "Weather / PatchTST": [
+      "PatchTST_official_supervised_RevIN"
+    ]
+  },
+  "caps": {
+    "ETTh1 / DLinear / total": 720,
+    "ETTh1 / LSTM / total": 720,
+    "ETTh1 / LSTM / cap": 77,
+    "ETTh1 / PatchTST / total": 720,
+    "ETTh1 / PatchTST / cap": 5,
+    "KDD-Beijing / DLinear / total": 720,
+    "KDD-Beijing / LSTM / total": 720,
+    "KDD-Beijing / PatchTST / total": 720,
+    "KDD-Beijing / PatchTST / cap": 12,
+    "KDD-Beijing / PatchTST / near_cap": 7,
+    "KDD-Beijing / DLinear / cap": 6,
+    "SWaT / DLinear / total": 720,
+    "SWaT / LSTM / total": 720,
+    "SWaT / LSTM / cap": 282,
+    "SWaT / LSTM / near_cap": 228,
+    "SWaT / PatchTST / total": 720,
+    "SWaT / PatchTST / cap": 340,
+    "SWaT / PatchTST / near_cap": 277,
+    "Weather / DLinear / total": 720,
+    "Weather / LSTM / total": 720,
+    "Weather / PatchTST / total": 720,
+    "Weather / PatchTST / cap": 225,
+    "Weather / PatchTST / near_cap": 142,
+    "Weather / LSTM / cap": 1
+  }
+}

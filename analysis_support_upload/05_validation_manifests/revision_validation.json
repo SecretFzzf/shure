@@ -1,0 +1,95 @@
+{
+  "recomputed_output_comparison": {
+    "anchor_sensitivity.csv": "identical",
+    "configuration_means_2880.csv": "identical",
+    "configuration_mean_sd_2880.csv": "identical",
+    "figure1_coordinates.csv": "identical",
+    "forecast_tolerance.csv": "identical",
+    "global_ie_medians.csv": "identical",
+    "headline_and_dataset.csv": "identical",
+    "heatmap.csv": "identical",
+    "main_contrasts_2304.csv": "identical",
+    "method_performance.csv": "identical",
+    "method_ranking.csv": "identical",
+    "paired_comparisons.csv": "identical",
+    "ranking_summary.csv": "identical",
+    "seed_consistency.csv": "identical",
+    "seed_model_statistics.csv": "identical",
+    "seed_specific_statistics.csv": "identical",
+    "seed_units_2304.csv": "identical",
+    "strata.csv": "identical",
+    "threshold_sensitivity.csv": "identical"
+  },
+  "all_csv_outputs_equal": true,
+  "primary_counts_independently_verified": {
+    "valid": 2127,
+    "pure": 415,
+    "same_sign": 1720,
+    "nonmean": 2304
+  },
+  "source_root": "code",
+  "training_executed": false,
+  "original_results_modified": false,
+  "source_syntax_check": "all supplied .py files parse",
+  "primary_protocol": "three-seed mean FE before inversion classification",
+  "checkpoint_rule_difference": "ETTh1 min_delta for both saving and patience; other datasets strict best saved, min_delta only for patience",
+  "limits": "Static source/CSV audit; not a rerun of historical training or bitwise proof of upstream arrays.",
+  "final_reproduction": "19 CSV outputs identical after final correction",
+  "upstream_seed_check": "all 8640 records missing/imputation seed42",
+  "spline_variant_check": "all Spline records V3",
+  "source_metadata_match_rows": 8640,
+  "pdf_pages": 40,
+  "tables": 16,
+  "figures": 4,
+  "latex_warnings": 0,
+  "visual_review": "All pages rendered; figure/table pages visually checked; oversized-table scaling removed.",
+  "editorial_revision": {
+    "status": "compiled and checked",
+    "main_ratio": "three-seed mean FE; seed index removed from primary tau",
+    "confidence_intervals": "square brackets, table7 percent and table8 percentage-point units",
+    "discussion": "expanded objective/dataset/model/missingness analysis; mechanisms labelled hypotheses",
+    "training_caps": "moved to Appendix D, not removed from record",
+    "checkpoint_precision": "necessary update convention and recorded precision retained; worker counts in numerical configuration records",
+    "numerical_input_hash_unchanged": true,
+    "primary_inversion_pct": 19.511048425011754,
+    "rendered_detail_pages": [
+      14,
+      20,
+      23,
+      25,
+      31
+    ]
+  },
+  "selection_analysis": {
+    "section": "4.6",
+    "table": 10,
+    "units": 576,
+    "groups": 144,
+    "holm_family": 7,
+    "recomputed_csvs_identical": [
+      "policy_summary.csv",
+      "policy_units_4608.csv",
+      "policy_strata.csv",
+      "paired_tests_with_holm.csv",
+      "oracle_shares.csv",
+      "matched_missingness.csv"
+    ],
+    "matched_mechanisms": {
+      "valid_per_mechanism": 615,
+      "pure_counts": {
+        "Block-MCAR": 164,
+        "MCAR": 154,
+        "MNAR": 48
+      }
+    },
+    "raw_input_hash_unchanged": true,
+    "latex_warnings": 0,
+    "detail_pages": [
+      16,
+      24,
+      26,
+      27,
+      28
+    ]
+  }
+}

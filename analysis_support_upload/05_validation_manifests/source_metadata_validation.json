@@ -1,0 +1,188 @@
+{
+  "rows_with_exact_architecture_and_training_config_match": 8640,
+  "training_executed": false,
+  "scope": "Pure config functions extracted using AST; engine modules never imported. Training and metric paths additionally inspected statically.",
+  "source_root": "code",
+  "input_manifest": [
+    {
+      "file": "ETT\\seed123\\results_dlinear.csv",
+      "sha256": "afe459ab20dcf40eab055f382ae028f327e49cf8c2c0f2ccc55bc67c1547284f",
+      "rows": 240
+    },
+    {
+      "file": "ETT\\seed123\\results_lstm.csv",
+      "sha256": "5a55b4834f2622cba246850426d7e48e6b09e1f1d1ecc064780826bf01674c2c",
+      "rows": 240
+    },
+    {
+      "file": "ETT\\seed123\\results_patchtst.csv",
+      "sha256": "369803edbf748f6e6e25c786b9913565ce64773ce9ab3849bf4dceade2e25c63",
+      "rows": 240
+    },
+    {
+      "file": "ETT\\seed2026\\results_dlinear.csv",
+      "sha256": "142c96f13083670fbd30cec17b4ca61cfd1e183b57760089c85c14b98cfbca29",
+      "rows": 240
+    },
+    {
+      "file": "ETT\\seed2026\\results_lstm.csv",
+      "sha256": "d2f96ce5189df58390d0809be13c6529e19b98b3832c16b52800bde04b51f8c2",
+      "rows": 240
+    },
+    {
+      "file": "ETT\\seed2026\\results_patchtst.csv",
+      "sha256": "a5c243a708117169b9311d1f4a16c26d0bd298a62bcbd0805f65e370b9349ef8",
+      "rows": 240
+    },
+    {
+      "file": "ETT\\seed42\\results_dlinear.csv",
+      "sha256": "e166666367f5be9a47aa9f68d4d8b7351f6ddb3d91c2460c57625cbcc1d4dbee",
+      "rows": 240
+    },
+    {
+      "file": "ETT\\seed42\\results_lstm.csv",
+      "sha256": "aba892192d6d6e3e0ee3c7057fb4b851d733b6214159a9fb814b611583baf69a",
+      "rows": 240
+    },
+    {
+      "file": "ETT\\seed42\\results_patchtst.csv",
+      "sha256": "d0c33e6ea52e80b3ec2513a23da9774db6053d475c123f4328be75282b84b15d",
+      "rows": 240
+    },
+    {
+      "file": "KDD\\seed123\\results_dlinear.csv",
+      "sha256": "79dcb14a967584fb83ac5e2cff4c32ed40cfbda31b6fe441cf173730d9a05134",
+      "rows": 240
+    },
+    {
+      "file": "KDD\\seed123\\results_lstm.csv",
+      "sha256": "9e17e92c7da292c1da7f0a086f340884c003a81749a82ef92b69f22b7759d3f2",
+      "rows": 240
+    },
+    {
+      "file": "KDD\\seed123\\results_patchtst.csv",
+      "sha256": "875be03e101dd81bddafbb5392f1e04ab7f7b899caa7316a21606905931e1669",
+      "rows": 240
+    },
+    {
+      "file": "KDD\\seed2026\\results_dlinear.csv",
+      "sha256": "b7261e92a25d048cb7aa4468f68699a0a6fa7ec79d7cc1d01dbb54bcb042380e",
+      "rows": 240
+    },
+    {
+      "file": "KDD\\seed2026\\results_lstm.csv",
+      "sha256": "b8ff4f7c4d8d8292b629dccda35c69a713cfbeae076eafe8c6a0703460cf0eac",
+      "rows": 240
+    },
+    {
+      "file": "KDD\\seed2026\\results_patchtst.csv",
+      "sha256": "d89ca04e47b814f2e0dbcc371ec1f36cc8a58c2bdac407a07dd768b9b5ed0da1",
+      "rows": 240
+    },
+    {
+      "file": "KDD\\seed42\\results_dlinear.csv",
+      "sha256": "0a20e73536ca80fa4435ad7f2cc8d1e4585da101fe4a81a7540895a9c5358810",
+      "rows": 240
+    },
+    {
+      "file": "KDD\\seed42\\results_lstm.csv",
+      "sha256": "39cb0a77b7ea9bc62d22a7b26ca8d23d9c1f7fdb243d2482cd903ffdc84057fe",
+      "rows": 240
+    },
+    {
+      "file": "KDD\\seed42\\results_patchtst.csv",
+      "sha256": "abef5bfd3e6ecef36dbe51a7b9aeb0e0c382b26cb9973ad5a3ca2dd644d4a17f",
+      "rows": 240
+    },
+    {
+      "file": "SWaT\\seed123\\results_dlinear.csv",
+      "sha256": "68d5a5aeb5e26697e1e1348d9c107b3358866b4512ed3d87ecad5e6ecb425223",
+      "rows": 240
+    },
+    {
+      "file": "SWaT\\seed123\\results_lstm.csv",
+      "sha256": "294b4d93e99bbbab12c514d8e6c353b7ca833119b83fe026be3e3e27f2cd7e2e",
+      "rows": 240
+    },
+    {
+      "file": "SWaT\\seed123\\results_patchtst.csv",
+      "sha256": "0781751402170c5f79474c8ed84c2e643f18b5b933e20ee2a76c19f26fa6d9b1",
+      "rows": 240
+    },
+    {
+      "file": "SWaT\\seed2026\\results_dlinear.csv",
+      "sha256": "a63946ea39b9a81b9cb21714e79c00e56999e8fb17ab09f054352d281c745dde",
+      "rows": 240
+    },
+    {
+      "file": "SWaT\\seed2026\\results_lstm.csv",
+      "sha256": "76af73f964107c4658a22a4fe2ce0f542eb535d0dfa0baa78acc75ceea6c598d",
+      "rows": 240
+    },
+    {
+      "file": "SWaT\\seed2026\\results_patchtst.csv",
+      "sha256": "26d92063e3c80aec7bd94cc71a9f9b0df765c89850e05191874a74c25a8c7aef",
+      "rows": 240
+    },
+    {
+      "file": "SWaT\\seed42\\results_dlinear.csv",
+      "sha256": "abdb7f3e9fc068f02598f5d63103876280fbc07d308ff6385f20e0c3e536f43b",
+      "rows": 240
+    },
+    {
+      "file": "SWaT\\seed42\\results_lstm.csv",
+      "sha256": "31fb233acfd2bd9986f5610a8b2423d8bddbf65a5156e24e6891e6c218bfba8f",
+      "rows": 240
+    },
+    {
+      "file": "SWaT\\seed42\\results_patchtst.csv",
+      "sha256": "3721222b5a18313362aa4bdeab629b9e1beab24ea70bd05639ba16900643bdee",
+      "rows": 240
+    },
+    {
+      "file": "Weather\\seed123\\results_dlinear.csv",
+      "sha256": "c6d5e932a798d41ba7cf11e6a07ecae3e21838bc1dcef49df8aac8b87c4e0589",
+      "rows": 240
+    },
+    {
+      "file": "Weather\\seed123\\results_lstm.csv",
+      "sha256": "5f77d923cca543854c5efe127e001021bba8cfda4c4a304810f2bb2f9b2fe2d2",
+      "rows": 240
+    },
+    {
+      "file": "Weather\\seed123\\results_patchtst.csv",
+      "sha256": "d13d41b35e5aa73f5e584da886fb8d9ad7094a7ebea79d8d1a565b53d6a385b6",
+      "rows": 240
+    },
+    {
+      "file": "Weather\\seed2026\\results_dlinear.csv",
+      "sha256": "b6136ea1f05f82fffd9f326501a422827f87e2be17739c726e966a50e5cddb9d",
+      "rows": 240
+    },
+    {
+      "file": "Weather\\seed2026\\results_lstm.csv",
+      "sha256": "50d5d4ab068f4dc8e61013b03a72b27549c7b894c71e984ac615a1d21b1e528e",
+      "rows": 240
+    },
+    {
+      "file": "Weather\\seed2026\\results_patchtst.csv",
+      "sha256": "7b1f6ae4e072e3cd63a2c5084854074befca317c3ebec30f395c4b3d9a4c30a6",
+      "rows": 240
+    },
+    {
+      "file": "Weather\\seed42\\results_dlinear.csv",
+      "sha256": "29ef690ab344bbd06cab0768216e34e4fac5a5931c9abe515aec6ca77669e5bb",
+      "rows": 240
+    },
+    {
+      "file": "Weather\\seed42\\results_lstm.csv",
+      "sha256": "34d049e01bc81db841c8e30abb941934ad6f6bcf03b9bdb356ff8fa92728efae",
+      "rows": 240
+    },
+    {
+      "file": "Weather\\seed42\\results_patchtst.csv",
+      "sha256": "67f794a4fbf4e58cb42a1fccfba94e3727eeddd1b066c39b9e8db6882b17d1ab",
+      "rows": 240
+    }
+  ]
+}

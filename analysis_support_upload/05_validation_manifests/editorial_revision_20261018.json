@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-18",
+  "scope": "Implementation of the corrected Desktop modification checklist",
+  "compile_success": true,
+  "pdf_pages": 41,
+  "source_files_updated": 9,
+  "all_tables_explicitly_referenced": 16,
+  "citation_keys_resolved": 45,
+  "undefined_references": 0,
+  "overfull_boxes": 0,
+  "underfull_box_notes": 7,
+  "bibtex_notes": [
+    "Warning--empty pages in nie2023"
+  ],
+  "all_seven_within_phrases_fixed": true,
+  "keywords_fit_on_title_page": true,
+  "all_pages_rendered_and_visually_reviewed": true,
+  "original_protected_files_hashes_unchanged": 46,
+  "original_metric_sha256": "1172fb36fc1bd9f200426504e6af2437a4a7e90a397d6235ddbc3a21bd40c228",
+  "added_model_summary_independently_verified_from_raw_records": true,
+  "training_executed": false,
+  "original_result_rows_changed": false,
+  "model_sign_counts": {
+    "DLinear": 730,
+    "LSTM": 348,
+    "PatchTST": 642
+  },
+  "pure_all_three_counts": {
+    "DLinear": 39,
+    "LSTM": 84,
+    "PatchTST": 77
+  },
+  "visual_review_notes": "Title-page keyword spill corrected; Figure 1 kept near discussion; long URLs wrap using xurl.",
+  "limits": "Editorial and archived-metric verification; not a rerun of preprocessing or model training. ICLR page warning retained without invented page numbers."
+}

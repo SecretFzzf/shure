@@ -1,0 +1,2 @@
+# Preserve exact archived file bytes so SHA-256 checksums remain portable.
+* -text

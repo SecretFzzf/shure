@@ -1,0 +1,28 @@
+{
+  "input": "01_raw_data/online_results_8640.csv",
+  "input_sha256": "1172fb36fc1bd9f200426504e6af2437a4a7e90a397d6235ddbc3a21bd40c228",
+  "rows": 8640,
+  "configurations": 2880,
+  "selection_units": 576,
+  "horizon_groups": 144,
+  "checkpoint_validation_loss_max_difference_ETTh1": 0.0,
+  "tied_selection_units": {
+    "Val MSE": 0,
+    "Test IE-MAE": 0,
+    "Test IE-MSE": 0
+  },
+  "tie_break_order": [
+    "mean",
+    "spline",
+    "knn",
+    "brits",
+    "saits"
+  ],
+  "reported_headline_values_checked": 48,
+  "headline_discrepancies": [],
+  "monte_carlo_replicates": 20000,
+  "multiple_test_family": "Seven paired comparisons in Section 4.6 with Holm step-down adjustment",
+  "scope": "Section 4.4 matched-mechanism check and Section 4.6 imputer-selection analysis",
+  "additional_report_values_checked": 180,
+  "additional_discrepancies": []
+}
