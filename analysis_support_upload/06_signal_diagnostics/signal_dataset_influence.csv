@@ -1,0 +1,9 @@
+﻿excluded_dataset,metric,n,rho
+ETTh1,delta_roughness_distortion,1599,0.17751353526354174
+ETTh1,delta_acf_distortion,1599,0.26430117816313003
+KDD-Beijing,delta_roughness_distortion,1602,0.16046395474769193
+KDD-Beijing,delta_acf_distortion,1602,0.37015038747709017
+SWaT,delta_roughness_distortion,1569,0.2594671928386267
+SWaT,delta_acf_distortion,1569,0.29222392781783946
+Weather,delta_roughness_distortion,1611,0.1099393369869894
+Weather,delta_acf_distortion,1611,0.24922537930868838

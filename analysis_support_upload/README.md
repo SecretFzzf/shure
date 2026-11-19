@@ -1,164 +1,81 @@
-# Reproduction Guide
+# Online Resource 1
 
-## Better Imputation Does Not Guarantee Better Forecasting
+This archive contains the 8,640 original run records, the analysis scripts,
+and the figure assets used in the revised manuscript. These records support
+numerical reproduction. The original series, historical preprocessing and
+model-training implementations, imputed input windows and checkpoints are
+outside this release. SWaT must be obtained from its provider under the
+provider's data access conditions.
 
-**Transmission Efficiency in Two-Step Time Series Pipelines**
+| Directory | Contents |
+| --- | --- |
+| 01_raw_data | Archived run metrics and configuration audit |
+| 02_transmission_analysis | Paired contrasts, transmission, seed checks and dataset influence |
+| 03_selection_analysis | Selection, regret and matched-mechanism comparisons |
+| 04_figure_generation | Final figures and the original plotting code |
+| 06_signal_diagnostics | Archived signal measures, held-out predictions and diagnostic code |
+| 07_revision_analysis | Revision statistics, adjusted logistic regression, ETTh1 mask check and updated Figure 2 recipe |
+| 08_validation_temporal | Validation selector inputs and summaries, reconstructed contrast labels and temporal intervals |
+| 09_revision_checks | Coarser paired tests, signal sensitivities and updated single-column figure scripts |
 
-This guide describes the numerical reproduction materials for the study of
-reconstruction-forecasting mismatch in two-step time series pipelines. The
-package provides archived run-level metrics and scripts for the manuscript's
-transmission, seed-stability, and imputer-selection analyses and Figures 1-4.
+## Recompute
 
-For the research overview, experimental design, and main findings, see the
-[project README](../README.md). Repository: <https://github.com/SecretFzzf/shure>.
+From this directory, install the dependencies and run the archived analysis
+in order. Scripts in directories 02 and 03 write their derived CSVs beside
+the inputs by default. Use an extracted working copy.
 
-The `01_raw_data` directory contains per-run metrics, not original time-series
-observations. This release covers numerical analysis and plotting; upstream
-preprocessing and training code, raw time series, intermediate imputation arrays,
-and model weights are outside its scope. Neither raw nor processed SWaT time
-series are redistributed. Historical source and metadata manifests document the
-original experiments and may refer to upstream files outside this package.
-
----
-
-## 1. Directory Structure
-
-```text
-analysis_support_upload/
-├── README.md
-├── requirements.txt
-│
-├── 01_raw_data/                          # Primary recorded experimental metrics (8,640 runs)
-│   ├── online_results_8640.csv           # Consolidated results (4 datasets × 3 models × 3 modes × 4 rates × 4 horizons × 5 imputers × 3 seeds)
-│   └── input_audit.json                  # Completeness and configuration audit of the 8,640 runs
-│
-├── 02_transmission_analysis/             # Error transmission & inversion analysis (Tables 2–9 & Table E.16)
-│   ├── recompute_three_seeds.py          # Main statistical computation script
-│   ├── summary.json                      # Headline summary statistics and SHA-256 verification
-│   ├── configuration_means_2880.csv      # Three-seed mean IE/FE across 2,880 configurations
-│   ├── configuration_mean_sd_2880.csv    # Three-seed mean and sample SD (ddof=1) across 2,880 configurations
-│   ├── main_contrasts_2304.csv           # All 2,304 non-Mean contrasts against the Mean anchor
-│   ├── headline_and_dataset.csv          # Overall and per-dataset transmission/inversion metrics (Tables 3 & 5)
-│   ├── method_performance.csv            # Imputation and forecasting performance by dataset and imputer (Table 2)
-│   ├── threshold_sensitivity.csv         # Sensitivity across stability thresholds epsilon and MSE metric (Table 4)
-│   ├── anchor_sensitivity.csv            # Sensitivity to baseline anchor choice: Mean vs. Spline (Table 6)
-│   ├── strata.csv                        # Stratified pure inversion rates and cluster bootstrap CIs (Table 7)
-│   ├── paired_comparisons.csv            # Paired sign-flip randomization tests and Holm-adjusted p-values (Table 8)
-│   ├── recompute_model_seed_consistency.py # Model-stratified seed-summary script
-│   ├── recompute_dataset_influence.py    # Leave-one-dataset-out composition check
-│   ├── leave_one_dataset_out.csv         # Full grid and four dataset-omission summaries
-│   ├── model_seed_consistency.csv         # Model-specific sign agreement and inversion stability
-│   ├── seed_consistency.csv              # Cross-seed sign agreement and inversion stability (Table 9)
-│   ├── seed_model_statistics.csv         # Per-seed, per-dataset, per-model breakdown (Appendix Table E.16)
-│   ├── seed_specific_statistics.csv      # Per-seed overall and dataset-level statistics
-│   ├── seed_units_2304.csv               # Unit-level seed-by-seed contrast signs across 2,304 contrasts
-│   ├── heatmap.csv                       # Model × Imputer pure inversion matrix (for Figure 4)
-│   ├── figure1_coordinates.csv           # Median forecasting MAE by model, imputer, and missing rate (for Figure 1)
-│   ├── forecast_tolerance.csv            # Inversion counts under relative FE deterioration tolerances
-│   ├── global_ie_medians.csv             # Global median IE by imputation method
-│   ├── method_ranking.csv                # Unit-level best-IE vs. best-FE imputer comparison across 576 units
-│   └── ranking_summary.csv               # Dataset-level summary of IE vs. FE optimal-imputer mismatches
-│
-├── 03_selection_analysis/                # Imputer selection & matched-missingness analysis (Sections 4.4 & 4.6)
-│   ├── recompute_selection.py            # Selection-policy and matched-missingness computation script
-│   ├── selection_input_audit.json        # Verification summary for Section 4.4 and Section 4.6
-│   ├── policy_summary.csv                # Overall performance of 8 selection policies across 576 units (Table 10)
-│   ├── paired_tests_with_holm.csv        # 7 paired horizon-group sign-flip tests with Holm correction (Section 4.6)
-│   ├── policy_strata.csv                 # Selection-policy regret and worse-than-Mean rates by dataset and model
-│   ├── policy_units_4608.csv             # Unit-level trace of all 8 policies × 576 selection units
-│   ├── oracle_shares.csv                 # Dataset × model oracle imputer win shares (including exact ties)
-│   └── matched_missingness.csv           # Matched intersection (615 configurations per mechanism) across MCAR, Block-MCAR, MNAR (Section 4.4)
-│
-├── 04_figure_generation/                 # Manuscript figure plotting script and generated PNGs (Figures 1–4)
-│   ├── plot_three_seeds.py               # Plotting script reading from 02_transmission_analysis/
-│   ├── fig1.png                          # Figure 1: Median forecasting MAE across missing rates
-│   ├── fig2.png                          # Figure 2: Joint ΔIE vs. ΔFE scatter across architectures
-│   ├── fig3.png                          # Figure 3: Inversion rate sensitivity to threshold ε
-│   └── fig4.png                          # Figure 4: Model × Imputer pure inversion rate heatmap
-│
-└── 05_validation_manifests/              # Reproducibility manifests and SHA-256 checksums
-    ├── source_code_manifest.json         # SHA-256 checksums of the experimental source scripts
-    ├── source_metadata_validation.json   # SHA-256 checksums of the 36 per-seed/per-model raw result CSVs
-    ├── revision_validation.json          # Original numerical verification summary
-    ├── editorial_revision_20261018.json  # Manuscript editorial verification record
-    ├── github_publication_validation.json # Reproduction checks and package checksums
-    └── concise_revision_validation.json  # Concise manuscript and dataset-influence verification
-```
-
----
-
-## 2. Quick Reproduction Instructions
-
-Install dependencies (`numpy`, `pandas`, `matplotlib`):
-
-```bash
+```sh
 python -m pip install -r requirements.txt
-```
-
-Run the five scripts in order from the root of `analysis_support_upload/` (each script defaults to reading from `01_raw_data/` or `02_transmission_analysis/` and writing outputs into its own folder):
-
-```bash
-# 1. Recompute main transmission & inversion tables (Tables 2–9 & Table E.16)
 python 02_transmission_analysis/recompute_three_seeds.py
-
-# 2. Recompute model-stratified seed consistency (Section 4.5)
 python 02_transmission_analysis/recompute_model_seed_consistency.py
-
-# 3. Recompute the dataset influence check (Appendix Table F.17)
 python 02_transmission_analysis/recompute_dataset_influence.py
-
-# 4. Recompute imputer-selection policies & matched-missingness check (Section 4.4 & Table 10)
 python 03_selection_analysis/recompute_selection.py
-
-# 5. Regenerate manuscript Figures 1–4
-python 04_figure_generation/plot_three_seeds.py
+python 09_revision_checks/recompute_paired_and_signal.py
 ```
 
----
-
-## 3. Manuscript Table & Figure Mapping
-
-| Manuscript Item | Source File |
-| :--- | :--- |
-| **Table 1** (Experimental Grid) | Verified against `01_raw_data/online_results_8640.csv` & `01_raw_data/input_audit.json` |
-| **Table 2** (Method Performance) | `02_transmission_analysis/method_performance.csv` |
-| **Table 3** (Dataset Transmission Summary) | `02_transmission_analysis/headline_and_dataset.csv` |
-| **Table 4** (Threshold & Metric Sensitivity) | `02_transmission_analysis/threshold_sensitivity.csv` |
-| **Table 5** (Overall Inversion Summary) | `02_transmission_analysis/headline_and_dataset.csv` (`Overall` row) |
-| **Table 6** (Anchor Sensitivity: Mean vs. Spline) | `02_transmission_analysis/anchor_sensitivity.csv` |
-| **Table 7** (Stratified Inversion Rates) | `02_transmission_analysis/strata.csv` |
-| **Table 8** (Paired Architecture/Imputer Tests) | `02_transmission_analysis/paired_comparisons.csv` |
-| **Table 9** (Three-Seed Consistency) | `02_transmission_analysis/seed_consistency.csv` |
-| **Section 4.5** (Model-stratified seed consistency) | `02_transmission_analysis/model_seed_consistency.csv` |
-| **Section 4.4** (Matched-Mechanism Check, $n=615$) | `03_selection_analysis/matched_missingness.csv` |
-| **Table 10 & Section 4.6** (Selection Policies) | `03_selection_analysis/policy_summary.csv` & `03_selection_analysis/paired_tests_with_holm.csv` |
-| **Appendix Table F.17** (Dataset influence check) | `02_transmission_analysis/leave_one_dataset_out.csv` |
-| **Appendix Table E.16** (Seed × Model Breakdown) | `02_transmission_analysis/seed_model_statistics.csv` |
-| **Figures 1–4** | `04_figure_generation/fig1.png` – `fig4.png` |
-
-## 4. Model-stratified forecasting-seed analysis
-
-Section 4.5 additionally reports forecasting-error-change sign agreement and
-all-three-seed pure inversion separately for DLinear, LSTM and PatchTST.
-Reproduce these statistics after the main transmission analysis with:
-
-```bash
-python 02_transmission_analysis/recompute_model_seed_consistency.py
+The final PNGs in 04 match the clean manuscript. Recreate Figure 1 using
+```sh
+python 04_figure_generation/plot_three_seeds.py --only-figure-one --out reproduced_figures
+```
+Figure 2 is recreated by the script in [07_revision_analysis](07_revision_analysis/README.md).
+Figures 3 and 4 can be regenerated with
+```sh
+python 09_revision_checks/plot_single_column_figures.py --out reproduced_figures
 ```
 
-The script reads `02_transmission_analysis/seed_units_2304.csv` and writes
-`02_transmission_analysis/model_seed_consistency.csv`. Sign-agreement proportions
-use all 768 non-Mean configurations per model; pure-inversion proportions use
-709 valid contrasts per model. These are descriptive statistics of the three
-recorded forecasting seeds conditional on the fixed upstream inputs.
+[Validation and temporal follow-up](08_validation_temporal/README.md) contains
+the commands and scope for the follow-up sensitivity checks.
+[Coarser paired comparisons](09_revision_checks/README.md) describes the
+latest script and derived evidence.
 
-These summaries are computed from archived metrics and require no model training.
+## Mapping to the revised manuscript
 
-## 5. Dataset influence check
-
-`recompute_dataset_influence.py` independently averages the archived 8,640
-run-level metrics by configuration, forms the Mean contrasts at epsilon 0.01,
-and reports the full grid and each dataset omission. Its output contains valid
-counts, inversion counts and rates, median transmission ratios, relative error
-changes, and model-specific inversion rates. It uses no additional model fitting
-and makes no held-out-dataset prediction claim.
+| Manuscript item | Evidence | Notes |
+| --- | --- | --- |
+| Table 1 · Dataset characteristics | [input_audit.json](01_raw_data/input_audit.json) | Metadata also in Section 3.1 |
+| Table 2 · Experimental grid | [online_results_8640.csv](01_raw_data/online_results_8640.csv) | Original run-level input |
+| Table 3 · Forecast errors by dataset and imputer | [method_performance.csv](02_transmission_analysis/method_performance.csv) |  |
+| Table 4 · Transmission and inversion summaries | [headline_and_dataset.csv](02_transmission_analysis/headline_and_dataset.csv) |  |
+| Table 5 · Threshold and metric sensitivity | [threshold_sensitivity.csv](02_transmission_analysis/threshold_sensitivity.csv) |  |
+| Table 6 · Robust ratio summaries | [summary.json](02_transmission_analysis/summary.json) | Related statistics also in the run-level analysis outputs |
+| Table 7 · Anchor sensitivity | [anchor_sensitivity.csv](02_transmission_analysis/anchor_sensitivity.csv) |  |
+| Table 8 · Stratified inversion | [strata.csv](02_transmission_analysis/strata.csv) |  |
+| Table 9 · Horizon-specific results | [strata.csv](07_revision_analysis/strata.csv) | Rows for prediction horizon |
+| Table 10 · Original paired comparison tests | [paired_comparisons.csv](02_transmission_analysis/paired_comparisons.csv) |  |
+| Table 11 · Forecasting-seed sign agreement | [seed_consistency.csv](02_transmission_analysis/seed_consistency.csv) |  |
+| Table 12 · Imputer selection | [policy_summary.csv](03_selection_analysis/policy_summary.csv) | Paired tests in the same directory |
+| Table 13 · Deep-imputer fitting budgets | [online_results_8640.csv](01_raw_data/online_results_8640.csv) | Fields: imputer_config |
+| Table 14 · Shared SAITS settings | [online_results_8640.csv](01_raw_data/online_results_8640.csv) | Fields: imputer_config |
+| Table 15 · Shared BRITS settings | [online_results_8640.csv](01_raw_data/online_results_8640.csv) | Fields: imputer_config |
+| Table 16 · Forecasting architectures | [online_results_8640.csv](01_raw_data/online_results_8640.csv) | Fields: architecture_config |
+| Table 17 · Forecasting training settings | [online_results_8640.csv](01_raw_data/online_results_8640.csv) | Fields: training_config |
+| Table 18 · Seed and model breakdown | [seed_model_statistics.csv](02_transmission_analysis/seed_model_statistics.csv) |  |
+| Table 19 · Dataset influence | [leave_one_dataset_out.csv](02_transmission_analysis/leave_one_dataset_out.csv) |  |
+| Table 20 · Pooled signal diagnostics | [signal_associations.csv](06_signal_diagnostics/signal_associations.csv) | Out-of-fold results in signal_incremental_fit.csv |
+| Table 21 · Signal diagnostics by architecture | [signal_by_model.csv](07_revision_analysis/signal_by_model.csv) |  |
+| Table 22 · Full adjusted logistic regression | [adjusted_logistic.csv](07_revision_analysis/adjusted_logistic.csv) |  |
+| Table 23 · Paired tests with 48 blocks | [paired_inversion_48blocks.csv](09_revision_checks/paired_inversion_48blocks.csv) | Selection comparisons in paired_selection_48blocks.csv |
+| Figure 1 | [fig1.png](04_figure_generation/fig1.png) | Final manuscript asset |
+| Figure 2 | [fig2.png](04_figure_generation/fig2.png) | Final manuscript asset |
+| Figure 3 | [fig3.png](04_figure_generation/fig3.png) | Final manuscript asset |
+| Figure 4 | [fig4.png](04_figure_generation/fig4.png) | Final manuscript asset |

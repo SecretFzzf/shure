@@ -8,7 +8,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 def main():
  here=Path(__file__).resolve().parent
- p=argparse.ArgumentParser(description=__doc__);p.add_argument('--data',type=Path,default=here.parent/'02_transmission_analysis');p.add_argument('--out',type=Path,default=here);a=p.parse_args();a.out.mkdir(parents=True,exist_ok=True)
+ p=argparse.ArgumentParser(description=__doc__);p.add_argument('--data',type=Path,default=here.parent/'02_transmission_analysis');p.add_argument("--only-figure-one", action="store_true");p.add_argument('--out',type=Path,default=here/'reproduced_figures');a=p.parse_args();a.out.mkdir(parents=True,exist_ok=True)
  plt.rcParams.update({'font.family':'DejaVu Sans','font.size':11,'axes.spines.top':False,'axes.spines.right':False,'savefig.dpi':300})
  names={'mean':'Mean','spline':'Spline','knn':'KNN','brits':'BRITS','saits':'SAITS'};colors=['#555555','#0072B2','#CC79A7','#009E73','#D55E00'];models=['LSTM','DLinear','PatchTST']
  c=pd.read_csv(a.data/'figure1_coordinates.csv');fig,axs=plt.subplots(1,3,figsize=(9,3.6),sharey=True)
@@ -17,6 +17,7 @@ def main():
    x=c[(c.model==m)&(c.impute_method==method)].sort_values('missing_rate');ax.plot(x.missing_rate*100,x.fe_mae,label=name,color=color,marker='o',ms=4,ls='--' if method=='mean' else '-')
   ax.set(title=m,xlabel='Missing rate (%)',xticks=[10,30,50,70]);ax.grid(alpha=.15)
  axs[0].set_ylabel('Median forecasting MAE');fig.legend(*axs[0].get_legend_handles_labels(),loc='upper center',ncol=5,frameon=False);fig.tight_layout(rect=(0,0,1,.88));fig.savefig(a.out/'fig1.png');plt.close(fig)
+ if a.only_figure_one:return
  t=pd.read_csv(a.data/'main_contrasts_2304.csv');fig,axs=plt.subplots(1,3,figsize=(9,3.8),sharex=True,sharey=True)
  for ax,m in zip(axs,models):
   x=t[t.model==m];valid=x.valid.astype(bool);pure=x.pure.astype(bool)

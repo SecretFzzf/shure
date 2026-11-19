@@ -1,0 +1,2845 @@
+{
+  "stage": "complete",
+  "training_performed": false,
+  "parameters": {
+    "epsilon": 1e-06,
+    "min_adjacent_pairs": 8,
+    "acf_min_std": 1e-08,
+    "window_length": 96,
+    "aggregation": "equal windows within feature; equal valid features; common support across all five imputers"
+  },
+  "python": "3.13.9",
+  "packages": {
+    "numpy": "2.4.4",
+    "pandas": "3.0.3",
+    "scipy": "1.18.0",
+    "sklearn": "1.9.0"
+  },
+  "datasets": [
+    {
+      "dataset": "ETTh1",
+      "data_file": "ETTh1.csv",
+      "data_sha256": "f18de3ad269cef59bb07b5438d79bb3042d3be49bdeecf01c1cd6d29695ee066",
+      "shape": [
+        17420,
+        7
+      ],
+      "features": [
+        "OT",
+        "HUFL",
+        "HULL",
+        "MUFL",
+        "MULL",
+        "LUFL",
+        "LULL"
+      ],
+      "scaler_source": "recomputed using the recorded training-only protocol",
+      "clean_dtype": "float64"
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "data_file": "kdd_beijing_raw.csv",
+      "data_sha256": "10484b24c5d279c5a9783b463fd4856b152b7b7088af7987a75e0cd0896b117b",
+      "shape": [
+        10898,
+        210
+      ],
+      "features": [
+        "aotizhongxin_aq_PM2.5",
+        "aotizhongxin_aq_PM10",
+        "aotizhongxin_aq_NO2",
+        "aotizhongxin_aq_CO",
+        "aotizhongxin_aq_O3",
+        "aotizhongxin_aq_SO2",
+        "badaling_aq_PM2.5",
+        "badaling_aq_PM10",
+        "badaling_aq_NO2",
+        "badaling_aq_CO",
+        "badaling_aq_O3",
+        "badaling_aq_SO2",
+        "beibuxinqu_aq_PM2.5",
+        "beibuxinqu_aq_PM10",
+        "beibuxinqu_aq_NO2",
+        "beibuxinqu_aq_CO",
+        "beibuxinqu_aq_O3",
+        "beibuxinqu_aq_SO2",
+        "daxing_aq_PM2.5",
+        "daxing_aq_PM10",
+        "daxing_aq_NO2",
+        "daxing_aq_CO",
+        "daxing_aq_O3",
+        "daxing_aq_SO2",
+        "dingling_aq_PM2.5",
+        "dingling_aq_PM10",
+        "dingling_aq_NO2",
+        "dingling_aq_CO",
+        "dingling_aq_O3",
+        "dingling_aq_SO2",
+        "donggaocun_aq_PM2.5",
+        "donggaocun_aq_PM10",
+        "donggaocun_aq_NO2",
+        "donggaocun_aq_CO",
+        "donggaocun_aq_O3",
+        "donggaocun_aq_SO2",
+        "dongsi_aq_PM2.5",
+        "dongsi_aq_PM10",
+        "dongsi_aq_NO2",
+        "dongsi_aq_CO",
+        "dongsi_aq_O3",
+        "dongsi_aq_SO2",
+        "dongsihuan_aq_PM2.5",
+        "dongsihuan_aq_PM10",
+        "dongsihuan_aq_NO2",
+        "dongsihuan_aq_CO",
+        "dongsihuan_aq_O3",
+        "dongsihuan_aq_SO2",
+        "fangshan_aq_PM2.5",
+        "fangshan_aq_PM10",
+        "fangshan_aq_NO2",
+        "fangshan_aq_CO",
+        "fangshan_aq_O3",
+        "fangshan_aq_SO2",
+        "fengtaihuayuan_aq_PM2.5",
+        "fengtaihuayuan_aq_PM10",
+        "fengtaihuayuan_aq_NO2",
+        "fengtaihuayuan_aq_CO",
+        "fengtaihuayuan_aq_O3",
+        "fengtaihuayuan_aq_SO2",
+        "guanyuan_aq_PM2.5",
+        "guanyuan_aq_PM10",
+        "guanyuan_aq_NO2",
+        "guanyuan_aq_CO",
+        "guanyuan_aq_O3",
+        "guanyuan_aq_SO2",
+        "gucheng_aq_PM2.5",
+        "gucheng_aq_PM10",
+        "gucheng_aq_NO2",
+        "gucheng_aq_CO",
+        "gucheng_aq_O3",
+        "gucheng_aq_SO2",
+        "huairou_aq_PM2.5",
+        "huairou_aq_PM10",
+        "huairou_aq_NO2",
+        "huairou_aq_CO",
+        "huairou_aq_O3",
+        "huairou_aq_SO2",
+        "liulihe_aq_PM2.5",
+        "liulihe_aq_PM10",
+        "liulihe_aq_NO2",
+        "liulihe_aq_CO",
+        "liulihe_aq_O3",
+        "liulihe_aq_SO2",
+        "mentougou_aq_PM2.5",
+        "mentougou_aq_PM10",
+        "mentougou_aq_NO2",
+        "mentougou_aq_CO",
+        "mentougou_aq_O3",
+        "mentougou_aq_SO2",
+        "miyun_aq_PM2.5",
+        "miyun_aq_PM10",
+        "miyun_aq_NO2",
+        "miyun_aq_CO",
+        "miyun_aq_O3",
+        "miyun_aq_SO2",
+        "miyunshuiku_aq_PM2.5",
+        "miyunshuiku_aq_PM10",
+        "miyunshuiku_aq_NO2",
+        "miyunshuiku_aq_CO",
+        "miyunshuiku_aq_O3",
+        "miyunshuiku_aq_SO2",
+        "nansanhuan_aq_PM2.5",
+        "nansanhuan_aq_PM10",
+        "nansanhuan_aq_NO2",
+        "nansanhuan_aq_CO",
+        "nansanhuan_aq_O3",
+        "nansanhuan_aq_SO2",
+        "nongzhanguan_aq_PM2.5",
+        "nongzhanguan_aq_PM10",
+        "nongzhanguan_aq_NO2",
+        "nongzhanguan_aq_CO",
+        "nongzhanguan_aq_O3",
+        "nongzhanguan_aq_SO2",
+        "pingchang_aq_PM2.5",
+        "pingchang_aq_PM10",
+        "pingchang_aq_NO2",
+        "pingchang_aq_CO",
+        "pingchang_aq_O3",
+        "pingchang_aq_SO2",
+        "pinggu_aq_PM2.5",
+        "pinggu_aq_PM10",
+        "pinggu_aq_NO2",
+        "pinggu_aq_CO",
+        "pinggu_aq_O3",
+        "pinggu_aq_SO2",
+        "qianmen_aq_PM2.5",
+        "qianmen_aq_PM10",
+        "qianmen_aq_NO2",
+        "qianmen_aq_CO",
+        "qianmen_aq_O3",
+        "qianmen_aq_SO2",
+        "shunyi_aq_PM2.5",
+        "shunyi_aq_PM10",
+        "shunyi_aq_NO2",
+        "shunyi_aq_CO",
+        "shunyi_aq_O3",
+        "shunyi_aq_SO2",
+        "tiantan_aq_PM2.5",
+        "tiantan_aq_PM10",
+        "tiantan_aq_NO2",
+        "tiantan_aq_CO",
+        "tiantan_aq_O3",
+        "tiantan_aq_SO2",
+        "tongzhou_aq_PM2.5",
+        "tongzhou_aq_PM10",
+        "tongzhou_aq_NO2",
+        "tongzhou_aq_CO",
+        "tongzhou_aq_O3",
+        "tongzhou_aq_SO2",
+        "wanliu_aq_PM2.5",
+        "wanliu_aq_PM10",
+        "wanliu_aq_NO2",
+        "wanliu_aq_CO",
+        "wanliu_aq_O3",
+        "wanliu_aq_SO2",
+        "wanshouxigong_aq_PM2.5",
+        "wanshouxigong_aq_PM10",
+        "wanshouxigong_aq_NO2",
+        "wanshouxigong_aq_CO",
+        "wanshouxigong_aq_O3",
+        "wanshouxigong_aq_SO2",
+        "xizhimenbei_aq_PM2.5",
+        "xizhimenbei_aq_PM10",
+        "xizhimenbei_aq_NO2",
+        "xizhimenbei_aq_CO",
+        "xizhimenbei_aq_O3",
+        "xizhimenbei_aq_SO2",
+        "yanqin_aq_PM2.5",
+        "yanqin_aq_PM10",
+        "yanqin_aq_NO2",
+        "yanqin_aq_CO",
+        "yanqin_aq_O3",
+        "yanqin_aq_SO2",
+        "yizhuang_aq_PM2.5",
+        "yizhuang_aq_PM10",
+        "yizhuang_aq_NO2",
+        "yizhuang_aq_CO",
+        "yizhuang_aq_O3",
+        "yizhuang_aq_SO2",
+        "yongdingmennei_aq_PM2.5",
+        "yongdingmennei_aq_PM10",
+        "yongdingmennei_aq_NO2",
+        "yongdingmennei_aq_CO",
+        "yongdingmennei_aq_O3",
+        "yongdingmennei_aq_SO2",
+        "yongledian_aq_PM2.5",
+        "yongledian_aq_PM10",
+        "yongledian_aq_NO2",
+        "yongledian_aq_CO",
+        "yongledian_aq_O3",
+        "yongledian_aq_SO2",
+        "yufa_aq_PM2.5",
+        "yufa_aq_PM10",
+        "yufa_aq_NO2",
+        "yufa_aq_CO",
+        "yufa_aq_O3",
+        "yufa_aq_SO2",
+        "yungang_aq_PM2.5",
+        "yungang_aq_PM10",
+        "yungang_aq_NO2",
+        "yungang_aq_CO",
+        "yungang_aq_O3",
+        "yungang_aq_SO2",
+        "zhiwuyuan_aq_PM2.5",
+        "zhiwuyuan_aq_PM10",
+        "zhiwuyuan_aq_NO2",
+        "zhiwuyuan_aq_CO",
+        "zhiwuyuan_aq_O3",
+        "zhiwuyuan_aq_SO2"
+      ],
+      "scaler_source": "recomputed using the recorded training-only protocol",
+      "clean_dtype": "float64"
+    },
+    {
+      "dataset": "SWaT",
+      "data_file": "normal.csv",
+      "data_sha256": "22dce9d1f5f1f3ffb09ca749ba790504d36a4b368653d567ad533b251a4362e4",
+      "shape": [
+        8250,
+        40
+      ],
+      "features": [
+        "FIT101",
+        "LIT101",
+        "MV101",
+        "P101",
+        "AIT201",
+        "AIT202",
+        "AIT203",
+        "FIT201",
+        "MV201",
+        "P203",
+        "P205",
+        "DPIT301",
+        "FIT301",
+        "LIT301",
+        "MV301",
+        "MV302",
+        "MV303",
+        "MV304",
+        "P301",
+        "P302",
+        "AIT401",
+        "AIT402",
+        "FIT401",
+        "LIT401",
+        "P402",
+        "UV401",
+        "AIT501",
+        "AIT502",
+        "AIT503",
+        "AIT504",
+        "FIT501",
+        "FIT502",
+        "FIT503",
+        "FIT504",
+        "P501",
+        "PIT501",
+        "PIT502",
+        "PIT503",
+        "FIT601",
+        "P602"
+      ],
+      "scaler_source": "recorded preprocessing.json parameters",
+      "clean_dtype": "float32"
+    },
+    {
+      "dataset": "Weather",
+      "data_file": "weather.csv",
+      "data_sha256": "34ee981d07313e51da2a50bb600072c8ae4a69cb4b0651f4cb93a069d7a2ba63",
+      "shape": [
+        52696,
+        21
+      ],
+      "features": [
+        "p (mbar)",
+        "T (degC)",
+        "Tpot (K)",
+        "Tdew (degC)",
+        "rh (%)",
+        "VPmax (mbar)",
+        "VPact (mbar)",
+        "VPdef (mbar)",
+        "sh (g/kg)",
+        "H2OC (mmol/mol)",
+        "rho (g/m**3)",
+        "wv (m/s)",
+        "max. wv (m/s)",
+        "wd (deg)",
+        "rain (mm)",
+        "raining (s)",
+        "SWDR (W/m�)",
+        "PAR (�mol/m�/s)",
+        "max. PAR (�mol/m�/s)",
+        "Tlog (degC)",
+        "OT"
+      ],
+      "scaler_source": "recorded preprocessing.json parameters",
+      "clean_dtype": "float64"
+    }
+  ],
+  "caches": [
+    {
+      "dataset": "ETTh1",
+      "mode": "MCAR",
+      "rate": 0.1,
+      "method": "mean",
+      "path": "MCAR_mean_rate10_892a3118a9401a61.npz",
+      "file_bytes": 591332,
+      "test_array_sha256": "8023dbd1128339001e7543b6b64f1f3a9098ffcf1d9170bb10c938dad9868532",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MCAR",
+      "rate": 0.1,
+      "method": "spline",
+      "path": "impute_online_v3_MCAR_spline_rate10.npz",
+      "file_bytes": 5273490,
+      "test_array_sha256": "762292fc7ba832942ef33376241835192a34738e1fd60a82402e4be2116f36a9",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MCAR",
+      "rate": 0.1,
+      "method": "knn",
+      "path": "MCAR_knn_rate10_16745a1558faded9.npz",
+      "file_bytes": 623488,
+      "test_array_sha256": "6cd99708cc04ced558da7ee42388c818e76053c6456e971f81655fb14fb56baa",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MCAR",
+      "rate": 0.1,
+      "method": "brits",
+      "path": "MCAR_brits_rate10_b374103913d1a49d.npz",
+      "file_bytes": 4803344,
+      "test_array_sha256": "cbd8309da70da193f4522765836d2afdbc564890ffcd725a7606342fe5c2d701",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MCAR",
+      "rate": 0.1,
+      "method": "saits",
+      "path": "MCAR_saits_rate10_10f90abbbbcedfd7.npz",
+      "file_bytes": 5462707,
+      "test_array_sha256": "f2bf1a11bee31e7cabe5af7210e6b216cab1667e29b506834f15a6d0d002594a",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MCAR",
+      "rate": 0.3,
+      "method": "mean",
+      "path": "MCAR_mean_rate30_58a209ba1b704a2e.npz",
+      "file_bytes": 558012,
+      "test_array_sha256": "5f283caca9f821eb16c1c957cd1b389627601b22180f53f5ec4450227dffc6b8",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MCAR",
+      "rate": 0.3,
+      "method": "spline",
+      "path": "impute_online_v3_MCAR_spline_rate30.npz",
+      "file_bytes": 12647903,
+      "test_array_sha256": "85fb6cef03048eb45dbb85bb8e2317254527e0211a73e153006fea226901e8c9",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MCAR",
+      "rate": 0.3,
+      "method": "knn",
+      "path": "MCAR_knn_rate30_2f5ceef7903298eb.npz",
+      "file_bytes": 662515,
+      "test_array_sha256": "7fc76c3a5d9de6b24879097f55c134d4233f68677ffefbf2ce7160603bdc7646",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MCAR",
+      "rate": 0.3,
+      "method": "brits",
+      "path": "MCAR_brits_rate30_82a837b16fcf5281.npz",
+      "file_bytes": 12760529,
+      "test_array_sha256": "8d702ce407118e6141b34e1a075dad1772f1383b18f8a6f01de7f4e87e8cb2e9",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MCAR",
+      "rate": 0.3,
+      "method": "saits",
+      "path": "MCAR_saits_rate30_630fdf8b527e5c15.npz",
+      "file_bytes": 14174687,
+      "test_array_sha256": "8e999683067e5530d1416f7925f8c36748e34baa03ef53a88b9e42102d42a524",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MCAR",
+      "rate": 0.5,
+      "method": "mean",
+      "path": "MCAR_mean_rate50_ff49b767390065a3.npz",
+      "file_bytes": 508512,
+      "test_array_sha256": "64bad92d5e72bcdb82f83c24a145da2d32f468b330c342938d6114897f9bc7c2",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MCAR",
+      "rate": 0.5,
+      "method": "spline",
+      "path": "impute_online_v3_MCAR_spline_rate50.npz",
+      "file_bytes": 16439639,
+      "test_array_sha256": "8d06a696aee304fe4d56e6c68979a3b802277d9198780e7ec770c66f8ac6a87c",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MCAR",
+      "rate": 0.5,
+      "method": "knn",
+      "path": "MCAR_knn_rate50_a7cb1a1aa9d698c8.npz",
+      "file_bytes": 703043,
+      "test_array_sha256": "6fbae2561855e065ab8002303bf1e656d04139d35d30381bf8729d0da8072bf2",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MCAR",
+      "rate": 0.5,
+      "method": "brits",
+      "path": "MCAR_brits_rate50_b13158ebfafd05de.npz",
+      "file_bytes": 20112435,
+      "test_array_sha256": "bf77301addcf763fdbb31cf2bd1d9d54c3287b3191792ea33633d6c28975e95a",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MCAR",
+      "rate": 0.5,
+      "method": "saits",
+      "path": "MCAR_saits_rate50_9e1dab2e62315439.npz",
+      "file_bytes": 21563386,
+      "test_array_sha256": "6c792c13a2c754a2d9fc00adc3ff8e0667887ce806c5ef7f4bac4ae0cb733620",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MCAR",
+      "rate": 0.7,
+      "method": "mean",
+      "path": "MCAR_mean_rate70_da3346a04c122721.npz",
+      "file_bytes": 441508,
+      "test_array_sha256": "621cb6ccbfa879e99840d15a00b218341faedb3f8d79f7d93aaa9d846e2faf41",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MCAR",
+      "rate": 0.7,
+      "method": "spline",
+      "path": "impute_online_v3_MCAR_spline_rate70.npz",
+      "file_bytes": 15536850,
+      "test_array_sha256": "6fd69a9737a5f5f44e60b4a204d55507488dc30fd324cd27e0c2b1aa2920511b",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MCAR",
+      "rate": 0.7,
+      "method": "knn",
+      "path": "MCAR_knn_rate70_67aacb03d563c690.npz",
+      "file_bytes": 692058,
+      "test_array_sha256": "057e9f592c59c837c39fa823b8789d5b7fec2d03eec45eb98ee6232e64a193c4",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MCAR",
+      "rate": 0.7,
+      "method": "brits",
+      "path": "MCAR_brits_rate70_d634354dd3cb651d.npz",
+      "file_bytes": 26782827,
+      "test_array_sha256": "08cd422c22a4d22ab86befaeb8b762fdcb9627a874161b245232c9bd8aebf57f",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MCAR",
+      "rate": 0.7,
+      "method": "saits",
+      "path": "MCAR_saits_rate70_f4e4e087d2415b96.npz",
+      "file_bytes": 27729525,
+      "test_array_sha256": "db6d968e45a5d51b9c602b7cc9b0b0bb301c9da8be07158dea01be1c36855992",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MAR_Block",
+      "rate": 0.1,
+      "method": "mean",
+      "path": "MAR_Block_mean_rate10_ab090885ebf6e951.npz",
+      "file_bytes": 574484,
+      "test_array_sha256": "7f39ff29b5a0ab70e56c82e0f4dffbfb953b7e2074a93a0891337d186ea8d5d1",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MAR_Block",
+      "rate": 0.1,
+      "method": "spline",
+      "path": "impute_online_v3_MAR_Block_spline_rate10.npz",
+      "file_bytes": 3009856,
+      "test_array_sha256": "6ed74a8f31bb68ca00538e7c80281901ebd37b6cbce3562b15f93a748f681c46",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MAR_Block",
+      "rate": 0.1,
+      "method": "knn",
+      "path": "MAR_Block_knn_rate10_074ed26e5c44940d.npz",
+      "file_bytes": 575226,
+      "test_array_sha256": "7a5d93e966906c426130b1280c4225055765185cc12010d70788257e3819927d",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MAR_Block",
+      "rate": 0.1,
+      "method": "brits",
+      "path": "MAR_Block_brits_rate10_61a50682f0bc8816.npz",
+      "file_bytes": 4042293,
+      "test_array_sha256": "207540ba954c02e3cbe1aac52897daba8cdde462cff27d75abc35b4bc5f51870",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MAR_Block",
+      "rate": 0.1,
+      "method": "saits",
+      "path": "MAR_Block_saits_rate10_b69a4072e7eca934.npz",
+      "file_bytes": 4060939,
+      "test_array_sha256": "483fdea86da8e2fc9af0243aed08d3b5ff990d32246febea8be49bfdc060514f",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MAR_Block",
+      "rate": 0.3,
+      "method": "mean",
+      "path": "MAR_Block_mean_rate30_801122f2e507f1f2.npz",
+      "file_bytes": 510665,
+      "test_array_sha256": "1260c8bee61648e9517bbf81a76dd4576fc113c05374dbe9c472b2ebe7948fea",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MAR_Block",
+      "rate": 0.3,
+      "method": "spline",
+      "path": "impute_online_v3_MAR_Block_spline_rate30.npz",
+      "file_bytes": 6488805,
+      "test_array_sha256": "e01e57ba9c5f5cd2c624bed6e633448e51efd770ddccb993a3442c37afbbcf62",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MAR_Block",
+      "rate": 0.3,
+      "method": "knn",
+      "path": "MAR_Block_knn_rate30_11feadc71a5bef78.npz",
+      "file_bytes": 511303,
+      "test_array_sha256": "b40fb67dc420ed48e01f05b036844373470c35c31b729fd3a22fa7967ad59af7",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MAR_Block",
+      "rate": 0.3,
+      "method": "brits",
+      "path": "MAR_Block_brits_rate30_c0f0df0f3709b9c5.npz",
+      "file_bytes": 10786085,
+      "test_array_sha256": "38d0fed80092097722cd1a8db63ea8417c13a85cc5e2098535cb4752f969a1b4",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MAR_Block",
+      "rate": 0.3,
+      "method": "saits",
+      "path": "MAR_Block_saits_rate30_ebe2c49dc6eea147.npz",
+      "file_bytes": 10890812,
+      "test_array_sha256": "7c7fbe9532205e4f2ddccd51ac20623ef288aec0d0e311fe8e9e5589bd5258ce",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MAR_Block",
+      "rate": 0.5,
+      "method": "mean",
+      "path": "MAR_Block_mean_rate50_1e6f5c70d5cb9519.npz",
+      "file_bytes": 434203,
+      "test_array_sha256": "10e6afebe663d3acb3ea9c28584f76b5cfc8109f3331010bacd988248d5ac68c",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MAR_Block",
+      "rate": 0.5,
+      "method": "spline",
+      "path": "impute_online_v3_MAR_Block_spline_rate50.npz",
+      "file_bytes": 7739109,
+      "test_array_sha256": "6b3a9e7d82f22eefaa2297f2aa5ed73f168836b0d02c06ac8b302c4ba2be892a",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MAR_Block",
+      "rate": 0.5,
+      "method": "knn",
+      "path": "MAR_Block_knn_rate50_2119baf6572649a6.npz",
+      "file_bytes": 434795,
+      "test_array_sha256": "75ef45ef3b8d1f499adccb2ca9b2d2faad92143a7c7d5ff312cda767b9e6dcf8",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MAR_Block",
+      "rate": 0.5,
+      "method": "brits",
+      "path": "MAR_Block_brits_rate50_58b00c0749391355.npz",
+      "file_bytes": 17419508,
+      "test_array_sha256": "c7145ba95918d21cb9a2d3062841ee2ce62982ea29605482108b0f8f6832c5c1",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MAR_Block",
+      "rate": 0.5,
+      "method": "saits",
+      "path": "MAR_Block_saits_rate50_b882627ef02f8a29.npz",
+      "file_bytes": 17542884,
+      "test_array_sha256": "ecc228d875c6777ba2f71691c9c701a5ec40604ecaaee204a4e2be02b7124b0c",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MAR_Block",
+      "rate": 0.7,
+      "method": "mean",
+      "path": "MAR_Block_mean_rate70_355b2ef109243e96.npz",
+      "file_bytes": 334484,
+      "test_array_sha256": "efd14011c41597d32e79978de72079f73b22872a3260df84b3935d5324b88b4f",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MAR_Block",
+      "rate": 0.7,
+      "method": "spline",
+      "path": "impute_online_v3_MAR_Block_spline_rate70.npz",
+      "file_bytes": 5478476,
+      "test_array_sha256": "a958f5ed0e1af55d62cd5cc9274c1ba092135c4e661ce8b9209b337b0771bad0",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MAR_Block",
+      "rate": 0.7,
+      "method": "knn",
+      "path": "MAR_Block_knn_rate70_19e6c72e04de8e3a.npz",
+      "file_bytes": 335263,
+      "test_array_sha256": "714cd1357af041b6dabee70cbfb4f3de6a2ff346018e4b0c631fdb2fc1442a86",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MAR_Block",
+      "rate": 0.7,
+      "method": "brits",
+      "path": "MAR_Block_brits_rate70_3645574e8e23f847.npz",
+      "file_bytes": 23662188,
+      "test_array_sha256": "826ae575da9617897c1060e82511a75891d7f1c52e86af9a95934035f88036c0",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MAR_Block",
+      "rate": 0.7,
+      "method": "saits",
+      "path": "MAR_Block_saits_rate70_2bea64f82754e06d.npz",
+      "file_bytes": 23856985,
+      "test_array_sha256": "2e214708c76b929bdf420fb1d178dc3531b56f87c8464ead724211e1635b2bd1",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MNAR",
+      "rate": 0.1,
+      "method": "mean",
+      "path": "MNAR_mean_rate10_b5cd5ffb7125c699.npz",
+      "file_bytes": 574078,
+      "test_array_sha256": "f57e8b8aa46ae607fb302040ab98c1ad04b96c838586eeed24f1746c9fd4e392",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MNAR",
+      "rate": 0.1,
+      "method": "spline",
+      "path": "impute_online_v3_MNAR_spline_rate10.npz",
+      "file_bytes": 4111654,
+      "test_array_sha256": "1dcea5fcc76db7c95e3d5771992f225cf59b79bf2ba9f855489db8c163277e2e",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MNAR",
+      "rate": 0.1,
+      "method": "knn",
+      "path": "MNAR_knn_rate10_0acb915cd4397578.npz",
+      "file_bytes": 609067,
+      "test_array_sha256": "69492f46b029002460a7e77423a2e46fd905853ecaf391c2b3dd7ff227518bbd",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MNAR",
+      "rate": 0.1,
+      "method": "brits",
+      "path": "MNAR_brits_rate10_7b4a037b20394a81.npz",
+      "file_bytes": 4633934,
+      "test_array_sha256": "36f906194f2775dc50a7d3d9553c9392d059700701d03092a8cd234fe90011b0",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MNAR",
+      "rate": 0.1,
+      "method": "saits",
+      "path": "MNAR_saits_rate10_f8c81e0c9f51497b.npz",
+      "file_bytes": 5204413,
+      "test_array_sha256": "57164d2465bb70fafddc840f697fbd88c175a6d6448b9ab6c0873a81234234b6",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MNAR",
+      "rate": 0.3,
+      "method": "mean",
+      "path": "MNAR_mean_rate30_9a3f686296e6cf6e.npz",
+      "file_bytes": 520347,
+      "test_array_sha256": "d372d9549272c30355de24195216df60af0db83db64a6e568f058a6509c83b33",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MNAR",
+      "rate": 0.3,
+      "method": "spline",
+      "path": "impute_online_v3_MNAR_spline_rate30.npz",
+      "file_bytes": 8384504,
+      "test_array_sha256": "b0f5031d5b38e76bb4edb468d1c96df552cd286ae029a5d3bb4501db81807ad2",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MNAR",
+      "rate": 0.3,
+      "method": "knn",
+      "path": "MNAR_knn_rate30_143bb4f5543f777f.npz",
+      "file_bytes": 631476,
+      "test_array_sha256": "a6641a1928242c9dec12c5162b671fceb89bfe7d21d978efe9cfa2312fc143ae",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MNAR",
+      "rate": 0.3,
+      "method": "brits",
+      "path": "MNAR_brits_rate30_bfc9da227f83aeb9.npz",
+      "file_bytes": 12692074,
+      "test_array_sha256": "6fdf3a5ae28b0fd303b7e0f0ce51b6dfd2284cec38a788a57bad8c7d7ba58b5f",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MNAR",
+      "rate": 0.3,
+      "method": "saits",
+      "path": "MNAR_saits_rate30_f71c7299b9c08ad1.npz",
+      "file_bytes": 13803967,
+      "test_array_sha256": "90df20ac743455778c4c58d25ab9b87f4845c02e87d950e14878395ab60e6d41",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MNAR",
+      "rate": 0.5,
+      "method": "mean",
+      "path": "MNAR_mean_rate50_1f8e44f06300eda2.npz",
+      "file_bytes": 459911,
+      "test_array_sha256": "6a1893eba9f502f80777ed254028fc6997b845ab9e664b97636d6b7941e00d8f",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MNAR",
+      "rate": 0.5,
+      "method": "spline",
+      "path": "impute_online_v3_MNAR_spline_rate50.npz",
+      "file_bytes": 10181059,
+      "test_array_sha256": "ed4123eb4118fbd8ee091ce481e35be1c2956bc332dd0f01c2bcf6557832a740",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MNAR",
+      "rate": 0.5,
+      "method": "knn",
+      "path": "MNAR_knn_rate50_8e37b26c29dcfa72.npz",
+      "file_bytes": 643484,
+      "test_array_sha256": "f856c1bd897cfeedd37e5b2218508cecdb7a59f0372251cb46fb98ee554f1f65",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MNAR",
+      "rate": 0.5,
+      "method": "brits",
+      "path": "MNAR_brits_rate50_92ac864bc11fb96b.npz",
+      "file_bytes": 19934993,
+      "test_array_sha256": "f10d76ee5fdd38ac77312929daf7c933ccc9d0716454b4175dfc251f40becf73",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MNAR",
+      "rate": 0.5,
+      "method": "saits",
+      "path": "MNAR_saits_rate50_c3324f8924910364.npz",
+      "file_bytes": 21110175,
+      "test_array_sha256": "cb234fa65ab72921bfa2edd5090762b8589446b6aec27cdc65e7ece4c82b0ebe",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MNAR",
+      "rate": 0.7,
+      "method": "mean",
+      "path": "MNAR_mean_rate70_dee8382039234554.npz",
+      "file_bytes": 396705,
+      "test_array_sha256": "ad3f3233a85fdc20c5cc52232221c83d1dd0e947123a40626574ccb3fd3c482e",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MNAR",
+      "rate": 0.7,
+      "method": "spline",
+      "path": "impute_online_v3_MNAR_spline_rate70.npz",
+      "file_bytes": 9603878,
+      "test_array_sha256": "6583ea8bcb1c5760346829696a66ac1d20196fc955a77fe7f0d7e5287891ab81",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MNAR",
+      "rate": 0.7,
+      "method": "knn",
+      "path": "MNAR_knn_rate70_dd3eb9b1345ac3fb.npz",
+      "file_bytes": 604013,
+      "test_array_sha256": "0944799d29ad1a39717dcb99d8fbf7104812b03fe99926a99e5e225248cc7ec4",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MNAR",
+      "rate": 0.7,
+      "method": "brits",
+      "path": "MNAR_brits_rate70_1bd044c2f4fad5a4.npz",
+      "file_bytes": 26387334,
+      "test_array_sha256": "cb9ee738ecf7c6798c24600e34f3e4f32c1c135f107e87dd7c9001e679ac3dd1",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "ETTh1",
+      "mode": "MNAR",
+      "rate": 0.7,
+      "method": "saits",
+      "path": "MNAR_saits_rate70_e4fb70621c27fa96.npz",
+      "file_bytes": 27391534,
+      "test_array_sha256": "94aab7cef8a83887bd112a8fc3686a70443bd360d45b0bbbb22052667c455663",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MCAR",
+      "rate": 0.1,
+      "method": "mean",
+      "path": "impute_online_MCAR_mean_rate10.npz",
+      "file_bytes": 391734854,
+      "test_array_sha256": "85da85e1c6c62840a39f5d072eb9a6e33131c17c45e5c50fa83aa2689d90afc2",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MCAR",
+      "rate": 0.1,
+      "method": "spline",
+      "path": "impute_online_v3_MCAR_spline_rate10.npz",
+      "file_bytes": 415931445,
+      "test_array_sha256": "972dea52194ae8c43acb77dd371dda237f8a7e88b1738e7a4c02a404e096228b",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MCAR",
+      "rate": 0.1,
+      "method": "knn",
+      "path": "impute_online_MCAR_knn_rate10.npz",
+      "file_bytes": 472886470,
+      "test_array_sha256": "09a6737fa93aeb0b41ffa826ede5d849c3f89949112b01b274bb7167ea26500d",
+      "skipped_unreadable_candidates": [
+        "impute_online_MCAR_knn_rate10.npz: BadZipFile: File is not a zip file"
+      ]
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MCAR",
+      "rate": 0.1,
+      "method": "brits",
+      "path": "impute_online_MCAR_brits_rate10.npz",
+      "file_bytes": 531178278,
+      "test_array_sha256": "8ea4966f9a0001f191215a304f21c37e828d21acd4c3721553c74ac853932501",
+      "skipped_unreadable_candidates": [
+        "impute_online_MCAR_brits_rate10.npz: BadZipFile: File is not a zip file"
+      ]
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MCAR",
+      "rate": 0.1,
+      "method": "saits",
+      "path": "impute_online_MCAR_saits_rate10.npz",
+      "file_bytes": 532552437,
+      "test_array_sha256": "1dae5ab2642f8d390fdff277da0a82c8cdf420f5fedf0718a22357079639dbfd",
+      "skipped_unreadable_candidates": [
+        "impute_online_MCAR_saits_rate10.npz: BadZipFile: File is not a zip file"
+      ]
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MCAR",
+      "rate": 0.3,
+      "method": "mean",
+      "path": "impute_online_MCAR_mean_rate30.npz",
+      "file_bytes": 348182762,
+      "test_array_sha256": "48cb2e4835fa70a0c2a4fc290557fb4aaa152f808e91fb56013c53f3469b59fe",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MCAR",
+      "rate": 0.3,
+      "method": "spline",
+      "path": "impute_online_v3_MCAR_spline_rate30.npz",
+      "file_bytes": 399409348,
+      "test_array_sha256": "56a2bc392d95d2b1cf96e6dc3b0f4b63bc097bf5f83429df38f17bbd0940b392",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MCAR",
+      "rate": 0.3,
+      "method": "knn",
+      "path": "impute_online_MCAR_knn_rate30.npz",
+      "file_bytes": 509098248,
+      "test_array_sha256": "dd290d08b7d32241a6b5c12a997159ca29a89f91faef7873f40d05fa81ef9034",
+      "skipped_unreadable_candidates": [
+        "impute_online_MCAR_knn_rate30.npz: BadZipFile: File is not a zip file"
+      ]
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MCAR",
+      "rate": 0.3,
+      "method": "brits",
+      "path": "impute_online_MCAR_brits_rate30.npz",
+      "file_bytes": 570185858,
+      "test_array_sha256": "95ef242333d303069d70b98a0c0761757fb37b52eba336bb0da4ad36275058e6",
+      "skipped_unreadable_candidates": [
+        "impute_online_MCAR_brits_rate30.npz: BadZipFile: File is not a zip file"
+      ]
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MCAR",
+      "rate": 0.3,
+      "method": "saits",
+      "path": "impute_online_MCAR_saits_rate30.npz",
+      "file_bytes": 571649484,
+      "test_array_sha256": "07baabc881d73974750958a33e40dfcbe513db6ad26c67becf6d90ac9763b500",
+      "skipped_unreadable_candidates": [
+        "impute_online_MCAR_saits_rate30.npz: BadZipFile: File is not a zip file"
+      ]
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MCAR",
+      "rate": 0.5,
+      "method": "mean",
+      "path": "impute_online_MCAR_mean_rate50.npz",
+      "file_bytes": 283748652,
+      "test_array_sha256": "521841a17ddf0a9df796483d077cf3a62c72322990ac3ac0202b9e2836a010f0",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MCAR",
+      "rate": 0.5,
+      "method": "spline",
+      "path": "impute_online_v3_MCAR_spline_rate50.npz",
+      "file_bytes": 365346822,
+      "test_array_sha256": "746c1b5c4401502428d7b0698f89d1e72d70e86ce57f96d838e58e2fdcb878a3",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MCAR",
+      "rate": 0.5,
+      "method": "knn",
+      "path": "impute_online_MCAR_knn_rate50.npz",
+      "file_bytes": 539384164,
+      "test_array_sha256": "3d1e47de8ee8dd03650174fd49d7b6938631c8b2286f40d18fd312c06b30b3e9",
+      "skipped_unreadable_candidates": [
+        "impute_online_MCAR_knn_rate50.npz: BadZipFile: File is not a zip file"
+      ]
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MCAR",
+      "rate": 0.5,
+      "method": "brits",
+      "path": "impute_online_MCAR_brits_rate50.npz",
+      "file_bytes": 601258078,
+      "test_array_sha256": "2540bbb591fa14d73d6270a49829e98ade77a2050db78a13a1c043a716d9b48d",
+      "skipped_unreadable_candidates": [
+        "impute_online_MCAR_brits_rate50.npz: BadZipFile: File is not a zip file"
+      ]
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MCAR",
+      "rate": 0.5,
+      "method": "saits",
+      "path": "impute_online_MCAR_saits_rate50.npz",
+      "file_bytes": 601706709,
+      "test_array_sha256": "8d8619b2984b3482a34b6b5875f1949aeee2eaa9d58bddfdcde3c10aa258e01c",
+      "skipped_unreadable_candidates": [
+        "impute_online_MCAR_saits_rate50.npz: BadZipFile: File is not a zip file"
+      ]
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MCAR",
+      "rate": 0.7,
+      "method": "mean",
+      "path": "impute_online_MCAR_mean_rate70.npz",
+      "file_bytes": 198912815,
+      "test_array_sha256": "09929f4666c8843bfe088c19d6c7e3e5b92fc6447cdef2fa47f1e99c207ad990",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MCAR",
+      "rate": 0.7,
+      "method": "spline",
+      "path": "impute_online_v3_MCAR_spline_rate70.npz",
+      "file_bytes": 295923424,
+      "test_array_sha256": "5e5fb9b37d459d361c8d764b94e313bcc3d31937121b4da989f779da09d438ef",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MCAR",
+      "rate": 0.7,
+      "method": "knn",
+      "path": "impute_online_MCAR_knn_rate70.npz",
+      "file_bytes": 564587745,
+      "test_array_sha256": "0ebed888a8d9add18d4a65b5550b06b826ae2c6e7edcbeac067ec6a252aa3e57",
+      "skipped_unreadable_candidates": [
+        "impute_online_MCAR_knn_rate70.npz: BadZipFile: File is not a zip file"
+      ]
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MCAR",
+      "rate": 0.7,
+      "method": "brits",
+      "path": "impute_online_MCAR_brits_rate70.npz",
+      "file_bytes": 623145777,
+      "test_array_sha256": "3fef22548edfc038025f6beec976c9d37f7fb299d34b04d072da5f5c24460c4d",
+      "skipped_unreadable_candidates": [
+        "impute_online_MCAR_brits_rate70.npz: BadZipFile: File is not a zip file"
+      ]
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MCAR",
+      "rate": 0.7,
+      "method": "saits",
+      "path": "impute_online_MCAR_saits_rate70.npz",
+      "file_bytes": 623357744,
+      "test_array_sha256": "dca9b66158ff3f4eeb06c9ea9e6f10e7a8a78f6625f686635fe2b929cf98eff3",
+      "skipped_unreadable_candidates": [
+        "impute_online_MCAR_saits_rate70.npz: BadZipFile: File is not a zip file"
+      ]
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MAR_Block",
+      "rate": 0.1,
+      "method": "mean",
+      "path": "impute_online_MAR_Block_mean_rate10.npz",
+      "file_bytes": 366968710,
+      "test_array_sha256": "c0cb0d3e2e32c34e455a25dc8b0c390cf4bc902b9aaf0e8eeae0068ca3397089",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MAR_Block",
+      "rate": 0.1,
+      "method": "spline",
+      "path": "impute_online_v3_MAR_Block_spline_rate10.npz",
+      "file_bytes": 394862545,
+      "test_array_sha256": "3c1d360cbf920acf44fa47561d9130d57fa8de977ea1be67e6d536cb0e65cbf7",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MAR_Block",
+      "rate": 0.1,
+      "method": "knn",
+      "path": "impute_online_MAR_Block_knn_rate10.npz",
+      "file_bytes": 414911969,
+      "test_array_sha256": "d24165abb19598aef8d278a2bd02c98821325ab224067e2712c63379c37acbaa",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MAR_Block",
+      "rate": 0.1,
+      "method": "brits",
+      "path": "impute_online_MAR_Block_brits_rate10.npz",
+      "file_bytes": 523940773,
+      "test_array_sha256": "8b3030a516a87b5d46b31c86e2638e64e2b5b44723c0f96085b8a4a8e80745a3",
+      "skipped_unreadable_candidates": [
+        "impute_online_MAR_Block_brits_rate10.npz: BadZipFile: File is not a zip file"
+      ]
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MAR_Block",
+      "rate": 0.1,
+      "method": "saits",
+      "path": "impute_online_MAR_Block_saits_rate10.npz",
+      "file_bytes": 526151267,
+      "test_array_sha256": "e4177a9d56066549fe07fa281069c078d5da83968e9003390efe64ee3be4dc94",
+      "skipped_unreadable_candidates": [
+        "impute_online_MAR_Block_saits_rate10.npz: BadZipFile: File is not a zip file"
+      ]
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MAR_Block",
+      "rate": 0.3,
+      "method": "mean",
+      "path": "impute_online_MAR_Block_mean_rate30.npz",
+      "file_bytes": 291987994,
+      "test_array_sha256": "aa9b6796709f9e27ab5a873e3e077ff76c3f7c7329252102df709ecbedfc6eea",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MAR_Block",
+      "rate": 0.3,
+      "method": "spline",
+      "path": "impute_online_v3_MAR_Block_spline_rate30.npz",
+      "file_bytes": 337385006,
+      "test_array_sha256": "2e4b514156f0a2acaf32c41032a306e7f8b99427a78a42f16f0aa4ebb2fcbccb",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MAR_Block",
+      "rate": 0.3,
+      "method": "knn",
+      "path": "impute_online_MAR_Block_knn_rate30.npz",
+      "file_bytes": 331428580,
+      "test_array_sha256": "e15e818cfaab8443f97165da6a97a7c16c56772546a5be7f7f27014def151271",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MAR_Block",
+      "rate": 0.3,
+      "method": "brits",
+      "path": "impute_online_MAR_Block_brits_rate30.npz",
+      "file_bytes": 551467112,
+      "test_array_sha256": "e35013653bd22268ed1e2c98b549624711dd34c3f12ca870d7760523f6035b7f",
+      "skipped_unreadable_candidates": [
+        "impute_online_MAR_Block_brits_rate30.npz: BadZipFile: File is not a zip file"
+      ]
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MAR_Block",
+      "rate": 0.3,
+      "method": "saits",
+      "path": "impute_online_MAR_Block_saits_rate30.npz",
+      "file_bytes": 554617746,
+      "test_array_sha256": "7f4b301da92aa7847c2aee175461f21145c5bf7e1da50d68f4d58b381ad7fa16",
+      "skipped_unreadable_candidates": [
+        "impute_online_MAR_Block_saits_rate30.npz: BadZipFile: File is not a zip file"
+      ]
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MAR_Block",
+      "rate": 0.5,
+      "method": "mean",
+      "path": "impute_online_MAR_Block_mean_rate50.npz",
+      "file_bytes": 214781423,
+      "test_array_sha256": "abe6106476cce17f6b2fbfa7ab28d67ed5485a2c15c1eb18b5ccc1bffff6ca5f",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MAR_Block",
+      "rate": 0.5,
+      "method": "spline",
+      "path": "impute_online_v3_MAR_Block_spline_rate50.npz",
+      "file_bytes": 261818091,
+      "test_array_sha256": "12be274543cdaad91e735f68df3852f0e9d2c3c73e842a4121de8ff9a33250cb",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MAR_Block",
+      "rate": 0.5,
+      "method": "knn",
+      "path": "impute_online_MAR_Block_knn_rate50.npz",
+      "file_bytes": 243142102,
+      "test_array_sha256": "2a59592766e69dd8f61bf83638316bc682afae0767b543a3e3697b5c7dbf129c",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MAR_Block",
+      "rate": 0.5,
+      "method": "brits",
+      "path": "impute_online_MAR_Block_brits_rate50.npz",
+      "file_bytes": 576153223,
+      "test_array_sha256": "c7a667b5c8c704f1ef988d224c398c645aea102e2342929dbf823f45ec66f8a0",
+      "skipped_unreadable_candidates": [
+        "impute_online_MAR_Block_brits_rate50.npz: BadZipFile: File is not a zip file"
+      ]
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MAR_Block",
+      "rate": 0.5,
+      "method": "saits",
+      "path": "impute_online_MAR_Block_saits_rate50.npz",
+      "file_bytes": 585878076,
+      "test_array_sha256": "0596c877969fb263af318dfa8bc9e90601f4bebf3f9c16087440961fb3e82d1a",
+      "skipped_unreadable_candidates": [
+        "impute_online_MAR_Block_saits_rate50.npz: BadZipFile: File is not a zip file"
+      ]
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MAR_Block",
+      "rate": 0.7,
+      "method": "mean",
+      "path": "impute_online_MAR_Block_mean_rate70.npz",
+      "file_bytes": 133225059,
+      "test_array_sha256": "3b0dae619625a22a336157f75b02f6c2ab0ef4d7eb51184dcf8f6efbda5e2133",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MAR_Block",
+      "rate": 0.7,
+      "method": "spline",
+      "path": "impute_online_v3_MAR_Block_spline_rate70.npz",
+      "file_bytes": 179290014,
+      "test_array_sha256": "ceddbb76334d13f5efeecfd1668305506bba9d6508d2204469ae2f0f724c847c",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MAR_Block",
+      "rate": 0.7,
+      "method": "knn",
+      "path": "impute_online_MAR_Block_knn_rate70.npz",
+      "file_bytes": 148669644,
+      "test_array_sha256": "9ff4becdb9d8e22a3c89065345c4a70b799afffe2a53ba39976f603ef221128c",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MAR_Block",
+      "rate": 0.7,
+      "method": "brits",
+      "path": "impute_online_MAR_Block_brits_rate70.npz",
+      "file_bytes": 598816507,
+      "test_array_sha256": "373420a8e60b637c935062fbb883a0983ed12f5f160a16452acf447e1455b13b",
+      "skipped_unreadable_candidates": [
+        "impute_online_MAR_Block_brits_rate70.npz: BadZipFile: File is not a zip file"
+      ]
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MAR_Block",
+      "rate": 0.7,
+      "method": "saits",
+      "path": "impute_online_MAR_Block_saits_rate70.npz",
+      "file_bytes": 614271290,
+      "test_array_sha256": "5375981e2817fc45abd04e0afacef36d2a9f57410ed557f749423e986dfac281",
+      "skipped_unreadable_candidates": [
+        "impute_online_MAR_Block_saits_rate70.npz: BadZipFile: File is not a zip file"
+      ]
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MNAR",
+      "rate": 0.1,
+      "method": "mean",
+      "path": "impute_online_MNAR_mean_rate10.npz",
+      "file_bytes": 395915019,
+      "test_array_sha256": "e4675c650f665a2b232e666343ca1eea8225bceff71926102385f12666bb84b4",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MNAR",
+      "rate": 0.1,
+      "method": "spline",
+      "path": "impute_online_v3_MNAR_spline_rate10.npz",
+      "file_bytes": 422049408,
+      "test_array_sha256": "ff8d1c1fc5b3c4b64b1d8035bc026bce0de384f95982723b99f6922d73a2b3cf",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MNAR",
+      "rate": 0.1,
+      "method": "knn",
+      "path": "impute_online_MNAR_knn_rate10.npz",
+      "file_bytes": 477251049,
+      "test_array_sha256": "8129df2e5d51658ef8479da9ec4b47399f33f6ccfb15747c4a46246beb4bf7bf",
+      "skipped_unreadable_candidates": [
+        "impute_online_MNAR_knn_rate10.npz: BadZipFile: File is not a zip file"
+      ]
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MNAR",
+      "rate": 0.1,
+      "method": "brits",
+      "path": "impute_online_MNAR_brits_rate10.npz",
+      "file_bytes": 538232665,
+      "test_array_sha256": "eacb954e618b5f800993fa85635c556cb642f8449251bfe509fbfb71cc1d83c2",
+      "skipped_unreadable_candidates": [
+        "impute_online_MNAR_brits_rate10.npz: BadZipFile: File is not a zip file"
+      ]
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MNAR",
+      "rate": 0.1,
+      "method": "saits",
+      "path": "impute_online_MNAR_saits_rate10.npz",
+      "file_bytes": 539501936,
+      "test_array_sha256": "380d1b1acb5af827844d5b92c634d78dd30faa6cc29a3c7443aa3c48a1ad8095",
+      "skipped_unreadable_candidates": [
+        "impute_online_MNAR_saits_rate10.npz: BadZipFile: File is not a zip file"
+      ]
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MNAR",
+      "rate": 0.3,
+      "method": "mean",
+      "path": "impute_online_MNAR_mean_rate30.npz",
+      "file_bytes": 338330270,
+      "test_array_sha256": "33e6b9721f4fb7179b0dcdfe7c4618d2e79f942b88425cb77dd2e14e287fe21e",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MNAR",
+      "rate": 0.3,
+      "method": "spline",
+      "path": "impute_online_v3_MNAR_spline_rate30.npz",
+      "file_bytes": 394325421,
+      "test_array_sha256": "836af8472433fded2206f1378967d10ba05fa00350a30e99e171af7a180834f9",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MNAR",
+      "rate": 0.3,
+      "method": "knn",
+      "path": "impute_online_MNAR_knn_rate30.npz",
+      "file_bytes": 512654962,
+      "test_array_sha256": "c334d6c03c46933bd7fa5795108116dd606cd3c7c67b906fadc536aac34f17eb",
+      "skipped_unreadable_candidates": [
+        "impute_online_MNAR_knn_rate30.npz: BadZipFile: File is not a zip file"
+      ]
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MNAR",
+      "rate": 0.3,
+      "method": "brits",
+      "path": "impute_online_MNAR_brits_rate30.npz",
+      "file_bytes": 568970934,
+      "test_array_sha256": "c6276dc1064bfe46c1499a7561fe6daeeac941cac3ddd3a18f9c6d98cadb62e0",
+      "skipped_unreadable_candidates": [
+        "impute_online_MNAR_brits_rate30.npz: BadZipFile: File is not a zip file"
+      ]
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MNAR",
+      "rate": 0.3,
+      "method": "saits",
+      "path": "impute_online_MNAR_saits_rate30.npz",
+      "file_bytes": 570095352,
+      "test_array_sha256": "b282e0c7eb5aeecaaa94289c00040e7f3e3351efd84ba3720bac8efd35905d80",
+      "skipped_unreadable_candidates": [
+        "impute_online_MNAR_saits_rate30.npz: BadZipFile: File is not a zip file"
+      ]
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MNAR",
+      "rate": 0.5,
+      "method": "mean",
+      "path": "impute_online_MNAR_mean_rate50.npz",
+      "file_bytes": 261313976,
+      "test_array_sha256": "1025fe8a89f05cd7d4fb2d69c84c6309d5e225e8d29eeae919547936fc7f879e",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MNAR",
+      "rate": 0.5,
+      "method": "spline",
+      "path": "impute_online_v3_MNAR_spline_rate50.npz",
+      "file_bytes": 336996267,
+      "test_array_sha256": "8c491a41d008a568df4bf4923111cf8d3d586ca52984f9be11860e2c782b15bc",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MNAR",
+      "rate": 0.5,
+      "method": "knn",
+      "path": "impute_online_MNAR_knn_rate50.npz",
+      "file_bytes": 539227870,
+      "test_array_sha256": "6da0c8fecd6842955fd38c2efe0a266e1c99280d4705f455ef0904cd22366383",
+      "skipped_unreadable_candidates": [
+        "impute_online_MNAR_knn_rate50.npz: BadZipFile: File is not a zip file"
+      ]
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MNAR",
+      "rate": 0.5,
+      "method": "brits",
+      "path": "impute_online_MNAR_brits_rate50.npz",
+      "file_bytes": 593065654,
+      "test_array_sha256": "fcfd8fae34d543e515be4a69c57b540139b8ff91f6697ec6511a0fb723390a47",
+      "skipped_unreadable_candidates": [
+        "impute_online_MNAR_brits_rate50.npz: BadZipFile: File is not a zip file"
+      ]
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MNAR",
+      "rate": 0.5,
+      "method": "saits",
+      "path": "impute_online_MNAR_saits_rate50.npz",
+      "file_bytes": 594229467,
+      "test_array_sha256": "abf4d27625ff0b7752a35b581b347e1047d75cc0e45251ea45b40bccec2b367c",
+      "skipped_unreadable_candidates": [
+        "impute_online_MNAR_saits_rate50.npz: BadZipFile: File is not a zip file"
+      ]
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MNAR",
+      "rate": 0.7,
+      "method": "mean",
+      "path": "impute_online_MNAR_mean_rate70.npz",
+      "file_bytes": 172190882,
+      "test_array_sha256": "240a6ea7cc51840eba2a2d90e67d86a65894ef5d1138a7b3038958302d480ff9",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MNAR",
+      "rate": 0.7,
+      "method": "spline",
+      "path": "impute_online_v3_MNAR_spline_rate70.npz",
+      "file_bytes": 241640842,
+      "test_array_sha256": "c4eb78d7f53c1ac8a3db9b8d6076fbab41fe5faab02e9e339c2e722d92f5190d",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MNAR",
+      "rate": 0.7,
+      "method": "knn",
+      "path": "impute_online_MNAR_knn_rate70.npz",
+      "file_bytes": 544890059,
+      "test_array_sha256": "03b19193a1f94e02f750dbe163908e52d66a6b210e11fab2bf55b049dfa7972a",
+      "skipped_unreadable_candidates": [
+        "impute_online_MNAR_knn_rate70.npz: BadZipFile: File is not a zip file"
+      ]
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MNAR",
+      "rate": 0.7,
+      "method": "brits",
+      "path": "impute_online_MNAR_brits_rate70.npz",
+      "file_bytes": 607804681,
+      "test_array_sha256": "eb957c38686ebcf2d0ab84bc7027ee284a8860c72998494e7ff1e71983e4ad35",
+      "skipped_unreadable_candidates": [
+        "impute_online_MNAR_brits_rate70.npz: BadZipFile: File is not a zip file"
+      ]
+    },
+    {
+      "dataset": "KDD-Beijing",
+      "mode": "MNAR",
+      "rate": 0.7,
+      "method": "saits",
+      "path": "impute_online_MNAR_saits_rate70.npz",
+      "file_bytes": 604498285,
+      "test_array_sha256": "2a125144fdd091e099677a94a336eaefa43fb9faa47a630e1d88811ade805b19",
+      "skipped_unreadable_candidates": [
+        "impute_online_MNAR_saits_rate70.npz: BadZipFile: File is not a zip file"
+      ]
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MCAR",
+      "rate": 0.1,
+      "method": "mean",
+      "path": "impute_online_MCAR_mean_rate10.npz",
+      "file_bytes": 1536444,
+      "test_array_sha256": "b86ccce60a053b5d668046f81f437ea491d1e6915fae91d58bf2b232db4dbce1",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MCAR",
+      "rate": 0.1,
+      "method": "spline",
+      "path": "impute_online_v3_MCAR_spline_rate10.npz",
+      "file_bytes": 11911713,
+      "test_array_sha256": "cb39874a44ded0adf87c1d68696adb69fe52a9de2c261e0830622bfe0f297105",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MCAR",
+      "rate": 0.1,
+      "method": "knn",
+      "path": "impute_online_MCAR_knn_rate10.npz",
+      "file_bytes": 1579840,
+      "test_array_sha256": "ab4da6072529080f9da7879b3ede7df7fa3b8f689b93ab45fd943ff3f93ce1ce",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MCAR",
+      "rate": 0.1,
+      "method": "brits",
+      "path": "impute_online_MCAR_brits_rate10.npz",
+      "file_bytes": 13128065,
+      "test_array_sha256": "c4e9248edaf42ede629fa388a7a6237f84c1cc050adc1352132dcf8941642bc0",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MCAR",
+      "rate": 0.1,
+      "method": "saits",
+      "path": "impute_online_MCAR_saits_rate10.npz",
+      "file_bytes": 14938404,
+      "test_array_sha256": "c739f4e023904408c0ab62c0e7af3cf6b1a635d8e16428a58aaf18b7eb8a9080",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MCAR",
+      "rate": 0.3,
+      "method": "mean",
+      "path": "impute_online_MCAR_mean_rate30.npz",
+      "file_bytes": 1451065,
+      "test_array_sha256": "2317b62cbe590e816b88c1e315ce5cb112570418933c2270b94e850e38540a5e",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MCAR",
+      "rate": 0.3,
+      "method": "spline",
+      "path": "impute_online_v3_MCAR_spline_rate30.npz",
+      "file_bytes": 28405302,
+      "test_array_sha256": "8eba678490752ad9bd76244f4759413ef95c2e025b75c99e6cf188f83c6bfd89",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MCAR",
+      "rate": 0.3,
+      "method": "knn",
+      "path": "impute_online_MCAR_knn_rate30.npz",
+      "file_bytes": 1648097,
+      "test_array_sha256": "f6cad280119f1701487da805ad50f581cce6556dee72d6f03fc593bea1ef1fdd",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MCAR",
+      "rate": 0.3,
+      "method": "brits",
+      "path": "impute_online_MCAR_brits_rate30.npz",
+      "file_bytes": 35204553,
+      "test_array_sha256": "9433b2d6d40ac45fad8cde8bf5863346cc9594680e213c4a9f8456bdbcaff629",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MCAR",
+      "rate": 0.3,
+      "method": "saits",
+      "path": "impute_online_MCAR_saits_rate30.npz",
+      "file_bytes": 38685944,
+      "test_array_sha256": "10ca5ca15517293c5b636b3da60c672a0111ed736fa35b57de274a45bea03361",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MCAR",
+      "rate": 0.5,
+      "method": "mean",
+      "path": "impute_online_MCAR_mean_rate50.npz",
+      "file_bytes": 1309189,
+      "test_array_sha256": "1ae1cb804c81825b9b774b14b353517ff269f5a221f8aa3597483507da573330",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MCAR",
+      "rate": 0.5,
+      "method": "spline",
+      "path": "impute_online_v3_MCAR_spline_rate50.npz",
+      "file_bytes": 36491351,
+      "test_array_sha256": "5c16ef945e37b226f6f97d09c93d817002f6c5f188233924f46203c555488b70",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MCAR",
+      "rate": 0.5,
+      "method": "knn",
+      "path": "impute_online_MCAR_knn_rate50.npz",
+      "file_bytes": 1711002,
+      "test_array_sha256": "c82822eea9fdf1d0cc963a2b1fedfe68d8a9648ed614f014eda296e46cde5f25",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MCAR",
+      "rate": 0.5,
+      "method": "brits",
+      "path": "impute_online_MCAR_brits_rate50.npz",
+      "file_bytes": 55172559,
+      "test_array_sha256": "2bc0e3b49770703eea2690242de691c7494e03c5a7123e4c5424ab258cb1b868",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MCAR",
+      "rate": 0.5,
+      "method": "saits",
+      "path": "impute_online_MCAR_saits_rate50.npz",
+      "file_bytes": 58688692,
+      "test_array_sha256": "0dcfbaa90808faf95549eecd960e8d168187662d2a26509653dcb1b8b9a5944a",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MCAR",
+      "rate": 0.7,
+      "method": "mean",
+      "path": "impute_online_MCAR_mean_rate70.npz",
+      "file_bytes": 1130517,
+      "test_array_sha256": "ae7d833d8ab6c14d7a167d8de9236f2cac3baac3f7dcaed679ac4e9e83a46dda",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MCAR",
+      "rate": 0.7,
+      "method": "spline",
+      "path": "impute_online_v3_MCAR_spline_rate70.npz",
+      "file_bytes": 33831443,
+      "test_array_sha256": "1eaceab9cf06004ddad40b224549b7c1d67e79043522677193d85141d2614d42",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MCAR",
+      "rate": 0.7,
+      "method": "knn",
+      "path": "impute_online_MCAR_knn_rate70.npz",
+      "file_bytes": 1737171,
+      "test_array_sha256": "f3649af251e0d9a3edeff055dfc0b817b48677c5ecdb794e5cf937e3f15d2d30",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MCAR",
+      "rate": 0.7,
+      "method": "brits",
+      "path": "impute_online_MCAR_brits_rate70.npz",
+      "file_bytes": 73026432,
+      "test_array_sha256": "31a71c89dd2cb67a71185901e0cd9ca423cf721b93df0c7722d0764f7146b28d",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MCAR",
+      "rate": 0.7,
+      "method": "saits",
+      "path": "impute_online_MCAR_saits_rate70.npz",
+      "file_bytes": 75630575,
+      "test_array_sha256": "3d03c92bd47105b5077ba61ce66034b5ad01940c9ffa8e9bfb3d2ec09550f571",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MAR_Block",
+      "rate": 0.1,
+      "method": "mean",
+      "path": "impute_online_MAR_Block_mean_rate10.npz",
+      "file_bytes": 1434817,
+      "test_array_sha256": "1e7a3d673ae2d3c457414a8b0a6383af72cc5c0af6f65210fe7c807fb9ab63f9",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MAR_Block",
+      "rate": 0.1,
+      "method": "spline",
+      "path": "impute_online_v3_MAR_Block_spline_rate10.npz",
+      "file_bytes": 6989372,
+      "test_array_sha256": "fe7a533c2be22feb951d51665f97722f5b851d51153dd81686d4dca9435c27d9",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MAR_Block",
+      "rate": 0.1,
+      "method": "knn",
+      "path": "impute_online_MAR_Block_knn_rate10.npz",
+      "file_bytes": 1435434,
+      "test_array_sha256": "0664de107978865e528d88b4a396da2beb5bb65110645a5eb0f864c853d327e3",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MAR_Block",
+      "rate": 0.1,
+      "method": "brits",
+      "path": "impute_online_MAR_Block_brits_rate10.npz",
+      "file_bytes": 10974932,
+      "test_array_sha256": "5111736163e77f6c669018aa09037b54544770d5a10a49432f0f92ade4777a25",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MAR_Block",
+      "rate": 0.1,
+      "method": "saits",
+      "path": "impute_online_MAR_Block_saits_rate10.npz",
+      "file_bytes": 10953502,
+      "test_array_sha256": "071c388feb3c3650a06eba9a74391a8041b12c342a411fe69c9b30b127e35d95",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MAR_Block",
+      "rate": 0.3,
+      "method": "mean",
+      "path": "impute_online_MAR_Block_mean_rate30.npz",
+      "file_bytes": 1239171,
+      "test_array_sha256": "a994e01d7d2e8cff20e23f08b73fc188da73b2a69d3d86df1ec3f7b675bcbafc",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MAR_Block",
+      "rate": 0.3,
+      "method": "spline",
+      "path": "impute_online_v3_MAR_Block_spline_rate30.npz",
+      "file_bytes": 15682303,
+      "test_array_sha256": "7efb2b51072d8fbf9c40872dd02ad61088e35f35e33e89cdc75194c29abe17d2",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MAR_Block",
+      "rate": 0.3,
+      "method": "knn",
+      "path": "impute_online_MAR_Block_knn_rate30.npz",
+      "file_bytes": 1242411,
+      "test_array_sha256": "b519fc7e2358c8233e71c8fe96247a085b727e3075d873758056c61f13bee979",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MAR_Block",
+      "rate": 0.3,
+      "method": "brits",
+      "path": "impute_online_MAR_Block_brits_rate30.npz",
+      "file_bytes": 29542470,
+      "test_array_sha256": "22cde9ccf5da765c19aefb5de9056237870efca5b7b962c01964746b15c436a6",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MAR_Block",
+      "rate": 0.3,
+      "method": "saits",
+      "path": "impute_online_MAR_Block_saits_rate30.npz",
+      "file_bytes": 29550779,
+      "test_array_sha256": "30be08eefb679a5c0ce0e3100fab4ffdc88aa4c632c4a8692b98a8014f66319a",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MAR_Block",
+      "rate": 0.5,
+      "method": "mean",
+      "path": "impute_online_MAR_Block_mean_rate50.npz",
+      "file_bytes": 1022804,
+      "test_array_sha256": "fc66be3bdc365f553c19f553311ebe2a6155f930a55251349a27b923f97f669b",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MAR_Block",
+      "rate": 0.5,
+      "method": "spline",
+      "path": "impute_online_v3_MAR_Block_spline_rate50.npz",
+      "file_bytes": 15672720,
+      "test_array_sha256": "1c11a7d067bfdb17c8a4e2b7d71a46bc748435d79e0d6ab0c9409072b261c8eb",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MAR_Block",
+      "rate": 0.5,
+      "method": "knn",
+      "path": "impute_online_MAR_Block_knn_rate50.npz",
+      "file_bytes": 1026880,
+      "test_array_sha256": "7c753ce72b0272e17b5876810db4370dac332bbe9f74030c95eaf99124211fed",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MAR_Block",
+      "rate": 0.5,
+      "method": "brits",
+      "path": "impute_online_MAR_Block_brits_rate50.npz",
+      "file_bytes": 47734248,
+      "test_array_sha256": "c578064d7b793376bafcd42eeadbdb5780339a95d777f928258f2920e51fe8d4",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MAR_Block",
+      "rate": 0.5,
+      "method": "saits",
+      "path": "impute_online_MAR_Block_saits_rate50.npz",
+      "file_bytes": 47859712,
+      "test_array_sha256": "2c311667475add71be07c6f4ceead608dea682cfb7d0f3afdfc228b308fb97e6",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MAR_Block",
+      "rate": 0.7,
+      "method": "mean",
+      "path": "impute_online_MAR_Block_mean_rate70.npz",
+      "file_bytes": 790003,
+      "test_array_sha256": "af38101b60a5f5519a9fa85dec7f01b817b401724c595e1ef6fe294f635ae92a",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MAR_Block",
+      "rate": 0.7,
+      "method": "spline",
+      "path": "impute_online_v3_MAR_Block_spline_rate70.npz",
+      "file_bytes": 11921437,
+      "test_array_sha256": "2522fd9c2e90b78292788667f1f2b78b4e73b728d76e924ef7e63015258a9590",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MAR_Block",
+      "rate": 0.7,
+      "method": "knn",
+      "path": "impute_online_MAR_Block_knn_rate70.npz",
+      "file_bytes": 793613,
+      "test_array_sha256": "cdded9e29faf8987ea40451fe3317bee22b270b15fc334ca77af654b5fe67f85",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MAR_Block",
+      "rate": 0.7,
+      "method": "brits",
+      "path": "impute_online_MAR_Block_brits_rate70.npz",
+      "file_bytes": 63862959,
+      "test_array_sha256": "60cfd3f3f63d4e4274dc46475f826f71abc428f834335ec2ef37c144016a59b5",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MAR_Block",
+      "rate": 0.7,
+      "method": "saits",
+      "path": "impute_online_MAR_Block_saits_rate70.npz",
+      "file_bytes": 64438989,
+      "test_array_sha256": "b79f2a4c9e917520731d9378ed779123be25c22a5800cc1c4c1ff18065f93968",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MNAR",
+      "rate": 0.1,
+      "method": "mean",
+      "path": "impute_online_MNAR_mean_rate10.npz",
+      "file_bytes": 1582498,
+      "test_array_sha256": "21e8bdf4ab48aa22cc3cfac00e2d5f25827db40c73e4f1081f81cc28fcb14c7e",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MNAR",
+      "rate": 0.1,
+      "method": "spline",
+      "path": "impute_online_v3_MNAR_spline_rate10.npz",
+      "file_bytes": 9504890,
+      "test_array_sha256": "f7ea0fd206465c797637b94f3f6cde70f8bd870f70a66e61d5b909534b4daee1",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MNAR",
+      "rate": 0.1,
+      "method": "knn",
+      "path": "impute_online_MNAR_knn_rate10.npz",
+      "file_bytes": 1589345,
+      "test_array_sha256": "b4d94255c9e5c3a3fdd5638737d36eaae008678184cba90a3728148c11ec1743",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MNAR",
+      "rate": 0.1,
+      "method": "brits",
+      "path": "impute_online_MNAR_brits_rate10.npz",
+      "file_bytes": 12955845,
+      "test_array_sha256": "328b943020cbd3217736d0d03aeeeb39c2ec654a68865e6bdb662cf1a2fb2713",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MNAR",
+      "rate": 0.1,
+      "method": "saits",
+      "path": "impute_online_MNAR_saits_rate10.npz",
+      "file_bytes": 14651591,
+      "test_array_sha256": "08c1b778d3d89a2798e54e3aa9bc74c28689094e0cdbdc086a90d0097f902e37",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MNAR",
+      "rate": 0.3,
+      "method": "mean",
+      "path": "impute_online_MNAR_mean_rate30.npz",
+      "file_bytes": 1536971,
+      "test_array_sha256": "239c99afad9c2f751f3f837228d7e3349378ee4dd3b834fb47afcf39d09e89e4",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MNAR",
+      "rate": 0.3,
+      "method": "spline",
+      "path": "impute_online_v3_MNAR_spline_rate30.npz",
+      "file_bytes": 21667404,
+      "test_array_sha256": "17dac8e61e1a64398c09975ab6bfcfde63e5f01c05c0a72e524caedde5a0bf8f",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MNAR",
+      "rate": 0.3,
+      "method": "knn",
+      "path": "impute_online_MNAR_knn_rate30.npz",
+      "file_bytes": 1669550,
+      "test_array_sha256": "b74a3b56a3197d2d39171148d900b33354c77b873d4959cc41f9b2477a642595",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MNAR",
+      "rate": 0.3,
+      "method": "brits",
+      "path": "impute_online_MNAR_brits_rate30.npz",
+      "file_bytes": 34366179,
+      "test_array_sha256": "255a1391d5badd91d24184a2a8b26a84ae9453b73d6cd0c69bfbcd1b7506431c",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MNAR",
+      "rate": 0.3,
+      "method": "saits",
+      "path": "impute_online_MNAR_saits_rate30.npz",
+      "file_bytes": 37934888,
+      "test_array_sha256": "2d55f9a33cef150ff4792e35c4f4f3bd9376c64cc8c937bde54ea0c9aa72da11",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MNAR",
+      "rate": 0.5,
+      "method": "mean",
+      "path": "impute_online_MNAR_mean_rate50.npz",
+      "file_bytes": 1388117,
+      "test_array_sha256": "a2363b73d410091425ec89a0daa145b037998d1ef1c6a685ae8c10c854f407e5",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MNAR",
+      "rate": 0.5,
+      "method": "spline",
+      "path": "impute_online_v3_MNAR_spline_rate50.npz",
+      "file_bytes": 27519907,
+      "test_array_sha256": "e5fe95a50486a37236b4a4e76d8459dac12b1637ff98f8190f69f9dafd4407f0",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MNAR",
+      "rate": 0.5,
+      "method": "knn",
+      "path": "impute_online_MNAR_knn_rate50.npz",
+      "file_bytes": 1768232,
+      "test_array_sha256": "df6f287fdefe88499cf65c8de359d4db775e9a052fa7cfae183e3c87c1c311bc",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MNAR",
+      "rate": 0.5,
+      "method": "brits",
+      "path": "impute_online_MNAR_brits_rate50.npz",
+      "file_bytes": 53480505,
+      "test_array_sha256": "80f911977c872f74c2e744b569f3bf190caf70d81244b0e492cff4716f01f9df",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MNAR",
+      "rate": 0.5,
+      "method": "saits",
+      "path": "impute_online_MNAR_saits_rate50.npz",
+      "file_bytes": 57883438,
+      "test_array_sha256": "acb45f3be5c02362fdaf555cd1a62d10af7423f5ff7847d57eb09c6aff5a305c",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MNAR",
+      "rate": 0.7,
+      "method": "mean",
+      "path": "impute_online_MNAR_mean_rate70.npz",
+      "file_bytes": 1188161,
+      "test_array_sha256": "dbbf3e67e84bb2a0cf9a5ac36b8d355be79c68d0e4941eb80afe6a3bb5873517",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MNAR",
+      "rate": 0.7,
+      "method": "spline",
+      "path": "impute_online_v3_MNAR_spline_rate70.npz",
+      "file_bytes": 26536014,
+      "test_array_sha256": "83a60223d91689228319f660bcd4e3d87b6321f866a8e668964332a9f360fbf3",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MNAR",
+      "rate": 0.7,
+      "method": "knn",
+      "path": "impute_online_MNAR_knn_rate70.npz",
+      "file_bytes": 1783261,
+      "test_array_sha256": "678821d6b0da3248c80809bc25adf41824c37a5be915482c963a86c1f3c8a453",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MNAR",
+      "rate": 0.7,
+      "method": "brits",
+      "path": "impute_online_MNAR_brits_rate70.npz",
+      "file_bytes": 70963057,
+      "test_array_sha256": "9baf8725b03994a7b55e19ae48ef3b6ca15c4745123bb4fb5ec4518ba98dee96",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "SWaT",
+      "mode": "MNAR",
+      "rate": 0.7,
+      "method": "saits",
+      "path": "impute_online_MNAR_saits_rate70.npz",
+      "file_bytes": 74365786,
+      "test_array_sha256": "81a2d5d196a72961189adaf149c3aaaae2f7dfe3e45788996d284667aab61a11",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MCAR",
+      "rate": 0.1,
+      "method": "mean",
+      "path": "impute_online_MCAR_mean_rate10.npz",
+      "file_bytes": 5716685,
+      "test_array_sha256": "4035acc600cee852c1407bc7be3289ebb428db0d0a6ba344e2ed840697ff73aa",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MCAR",
+      "rate": 0.1,
+      "method": "spline",
+      "path": "impute_online_v3_MCAR_spline_rate10.npz",
+      "file_bytes": 42575311,
+      "test_array_sha256": "fc940ec1e393c6b1112315cc1e1517021a5dce1156c244bc5fab89aad2d87418",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MCAR",
+      "rate": 0.1,
+      "method": "knn",
+      "path": "impute_online_MCAR_knn_rate10.npz",
+      "file_bytes": 5912988,
+      "test_array_sha256": "01b9b9681d284315c71e59e84060e63e0ce5664cac6ea886b80074592aba9d13",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MCAR",
+      "rate": 0.1,
+      "method": "brits",
+      "path": "impute_online_MCAR_brits_rate10.npz",
+      "file_bytes": 42272309,
+      "test_array_sha256": "26ab4ba46a95989f47d8b960634f81c0324513345b97a2dd47f3e6c262263b5f",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MCAR",
+      "rate": 0.1,
+      "method": "saits",
+      "path": "impute_online_MCAR_saits_rate10.npz",
+      "file_bytes": 49232452,
+      "test_array_sha256": "9aea89c51b0ec30b3459c28f3e889e146e6eeb9144536b7cefeeac15d90d40a0",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MCAR",
+      "rate": 0.3,
+      "method": "mean",
+      "path": "impute_online_MCAR_mean_rate30.npz",
+      "file_bytes": 5356955,
+      "test_array_sha256": "ae048a41a6430a69a568f8f4f622e24829413de66fa5b086fc285f7bb4c80ea7",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MCAR",
+      "rate": 0.3,
+      "method": "spline",
+      "path": "impute_online_v3_MCAR_spline_rate30.npz",
+      "file_bytes": 101563096,
+      "test_array_sha256": "ca98afb816bae65ffc63c175983333034888ef3dd43ceec1ddcd0a991ff619a0",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MCAR",
+      "rate": 0.3,
+      "method": "knn",
+      "path": "impute_online_MCAR_knn_rate30.npz",
+      "file_bytes": 6170094,
+      "test_array_sha256": "99f72450df7b8e80852df9b4255fbfb8ef0eebd5cbb1a3603f317183e5cc56c9",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MCAR",
+      "rate": 0.3,
+      "method": "brits",
+      "path": "impute_online_MCAR_brits_rate30.npz",
+      "file_bytes": 113420792,
+      "test_array_sha256": "c308458d9bbb8a24857889a6ff0565cf13a80d9c9864e703ffb46edce59f44f3",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MCAR",
+      "rate": 0.3,
+      "method": "saits",
+      "path": "impute_online_MCAR_saits_rate30.npz",
+      "file_bytes": 128206285,
+      "test_array_sha256": "f2a72f9e6e5834672ea556559d5af4685b2b31ab378762fdead2b30df1c05c5a",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MCAR",
+      "rate": 0.5,
+      "method": "mean",
+      "path": "impute_online_MCAR_mean_rate50.npz",
+      "file_bytes": 4773752,
+      "test_array_sha256": "c2d64f766bbf27841ad097a5b590daf4899a6abf2269c3bca404c41c6ae24bd2",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MCAR",
+      "rate": 0.5,
+      "method": "spline",
+      "path": "impute_online_v3_MCAR_spline_rate50.npz",
+      "file_bytes": 131878784,
+      "test_array_sha256": "c9862c50ced9b78ba68bc464ad6ce4bd21e04af63daa6ca7957765275bd92c96",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MCAR",
+      "rate": 0.5,
+      "method": "knn",
+      "path": "impute_online_MCAR_knn_rate50.npz",
+      "file_bytes": 6349824,
+      "test_array_sha256": "ee2028f4e2fbac66e6e806354a8b7a96e8bec8199bc41ac4c6a9a07109a8384b",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MCAR",
+      "rate": 0.5,
+      "method": "brits",
+      "path": "impute_online_MCAR_brits_rate50.npz",
+      "file_bytes": 181267310,
+      "test_array_sha256": "33de074efbc8476c1a0432cea8bea9dfcfc8ea18cc45a698784406fd4900cd7c",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MCAR",
+      "rate": 0.5,
+      "method": "saits",
+      "path": "impute_online_MCAR_saits_rate50.npz",
+      "file_bytes": 195723864,
+      "test_array_sha256": "c63b16755faf7b4fab1db98f1c0fdc85262faf013ce599b2050bb380c84eb7e6",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MCAR",
+      "rate": 0.7,
+      "method": "mean",
+      "path": "impute_online_MCAR_mean_rate70.npz",
+      "file_bytes": 4022635,
+      "test_array_sha256": "77cd82dea46cf5f6016e145ef70fcf1e87c0fc0fb564f7342b1d3a23a71a206f",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MCAR",
+      "rate": 0.7,
+      "method": "spline",
+      "path": "impute_online_v3_MCAR_spline_rate70.npz",
+      "file_bytes": 124141070,
+      "test_array_sha256": "6ce1cdfc17690289ace0e21bb408ea3622981006bba317f675d96f8fe65dcd58",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MCAR",
+      "rate": 0.7,
+      "method": "knn",
+      "path": "impute_online_MCAR_knn_rate70.npz",
+      "file_bytes": 6457074,
+      "test_array_sha256": "1db72339967db1b1c143001446bc7a6e7ebb75905378c85f109e5494808ae641",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MCAR",
+      "rate": 0.7,
+      "method": "brits",
+      "path": "impute_online_MCAR_brits_rate70.npz",
+      "file_bytes": 244054884,
+      "test_array_sha256": "78c0f927b621e03dc16ccbe4510e8ddbc672bc124378d72ee79b282bda3ec524",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MCAR",
+      "rate": 0.7,
+      "method": "saits",
+      "path": "impute_online_MCAR_saits_rate70.npz",
+      "file_bytes": 253359128,
+      "test_array_sha256": "6ce819c017ccc20b4b10373c76584144433df8dab83c40b8985d9882f585fd5f",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MAR_Block",
+      "rate": 0.1,
+      "method": "mean",
+      "path": "impute_online_MAR_Block_mean_rate10.npz",
+      "file_bytes": 5377617,
+      "test_array_sha256": "e60f8ea8323b98e317cdc5fce98a62986aac64d737e17d23ad38ae515efa4629",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MAR_Block",
+      "rate": 0.1,
+      "method": "spline",
+      "path": "impute_online_v3_MAR_Block_spline_rate10.npz",
+      "file_bytes": 24425808,
+      "test_array_sha256": "07411a0d4a1f2e9a55d4fa2b475d61d48ce403facead4f824979c92aaf0dfd08",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MAR_Block",
+      "rate": 0.1,
+      "method": "knn",
+      "path": "impute_online_MAR_Block_knn_rate10.npz",
+      "file_bytes": 5378280,
+      "test_array_sha256": "3cb827e09c109ae4e9a9fb5c6399fde76c2576556d92eb1a24e2e0c2c4937369",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MAR_Block",
+      "rate": 0.1,
+      "method": "brits",
+      "path": "impute_online_MAR_Block_brits_rate10.npz",
+      "file_bytes": 37021123,
+      "test_array_sha256": "3d24cf59aa05a0c79afbb58cd0692b8dcf51891648210e1b55c72c8d04c3d5ba",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MAR_Block",
+      "rate": 0.1,
+      "method": "saits",
+      "path": "impute_online_MAR_Block_saits_rate10.npz",
+      "file_bytes": 37121888,
+      "test_array_sha256": "4e1fb91c991d4d35ab78259fe4492e6efd93d8f14609052c2126f2b25040a07c",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MAR_Block",
+      "rate": 0.3,
+      "method": "mean",
+      "path": "impute_online_MAR_Block_mean_rate30.npz",
+      "file_bytes": 4629526,
+      "test_array_sha256": "c1c78349af460dd6972771cd1f2c2341915a7dcfee9a769399ef402557d9589f",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MAR_Block",
+      "rate": 0.3,
+      "method": "spline",
+      "path": "impute_online_v3_MAR_Block_spline_rate30.npz",
+      "file_bytes": 53998536,
+      "test_array_sha256": "d38f1706ecf659b59d5eb800b15054d8c2393374d111e051de2b3a5554def445",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MAR_Block",
+      "rate": 0.3,
+      "method": "knn",
+      "path": "impute_online_MAR_Block_knn_rate30.npz",
+      "file_bytes": 4630581,
+      "test_array_sha256": "1fb7b36331480e5149f9a9e213264238654a81ec91350650e70e9cf19c5fb68f",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MAR_Block",
+      "rate": 0.3,
+      "method": "brits",
+      "path": "impute_online_MAR_Block_brits_rate30.npz",
+      "file_bytes": 99829447,
+      "test_array_sha256": "d6347879c060279af249b8c5f395165f95731e4f9a69777cf53d1eae1c9dce19",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MAR_Block",
+      "rate": 0.3,
+      "method": "saits",
+      "path": "impute_online_MAR_Block_saits_rate30.npz",
+      "file_bytes": 99860622,
+      "test_array_sha256": "7139d98a4ee016793106ed0513bcd4c259f394ff2b04d4a30d32d6f626619a5d",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MAR_Block",
+      "rate": 0.5,
+      "method": "mean",
+      "path": "impute_online_MAR_Block_mean_rate50.npz",
+      "file_bytes": 3782929,
+      "test_array_sha256": "56012ad2f12a79ea1afac4a3f8eda1f78f0492e60e758168c26bd72dc961da40",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MAR_Block",
+      "rate": 0.5,
+      "method": "spline",
+      "path": "impute_online_v3_MAR_Block_spline_rate50.npz",
+      "file_bytes": 60655784,
+      "test_array_sha256": "eb39cc46e018f50fb9d2f4f766265baa622a9901fcecdf3fda5788e42aa7b1c5",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MAR_Block",
+      "rate": 0.5,
+      "method": "knn",
+      "path": "impute_online_MAR_Block_knn_rate50.npz",
+      "file_bytes": 3783702,
+      "test_array_sha256": "56012ad2f12a79ea1afac4a3f8eda1f78f0492e60e758168c26bd72dc961da40",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MAR_Block",
+      "rate": 0.5,
+      "method": "brits",
+      "path": "impute_online_MAR_Block_brits_rate50.npz",
+      "file_bytes": 160547154,
+      "test_array_sha256": "37add35983629df75570745698002e4b3b82301658b360e9058d64d6d3890739",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MAR_Block",
+      "rate": 0.5,
+      "method": "saits",
+      "path": "impute_online_MAR_Block_saits_rate50.npz",
+      "file_bytes": 161030425,
+      "test_array_sha256": "cb1d6625b23ba2852b8d4c4487783c65fa2b9149159d67761193d824897fcbfd",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MAR_Block",
+      "rate": 0.7,
+      "method": "mean",
+      "path": "impute_online_MAR_Block_mean_rate70.npz",
+      "file_bytes": 2848964,
+      "test_array_sha256": "ac54a6aa9bc0613af5ac26449902a8d20de7735e09d6febe339ee7068c13d19b",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MAR_Block",
+      "rate": 0.7,
+      "method": "spline",
+      "path": "impute_online_v3_MAR_Block_spline_rate70.npz",
+      "file_bytes": 46062770,
+      "test_array_sha256": "31cbb6c700535c32d4d74208c8fe234b0dc89148846546969730b3eb54fe5007",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MAR_Block",
+      "rate": 0.7,
+      "method": "knn",
+      "path": "impute_online_MAR_Block_knn_rate70.npz",
+      "file_bytes": 2850638,
+      "test_array_sha256": "8150864715342dfa80b718765e38bde763a4229303b5d323fb2b7b4e07590d98",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MAR_Block",
+      "rate": 0.7,
+      "method": "brits",
+      "path": "impute_online_MAR_Block_brits_rate70.npz",
+      "file_bytes": 210981923,
+      "test_array_sha256": "7f430753df786b03a363c2437fb30eb36e1281777b27cc6461188f93221f0dd5",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MAR_Block",
+      "rate": 0.7,
+      "method": "saits",
+      "path": "impute_online_MAR_Block_saits_rate70.npz",
+      "file_bytes": 213321615,
+      "test_array_sha256": "88f3ddff07a7edb889c171ca6bab2345fc24171111a2b637e43846a696d90924",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MNAR",
+      "rate": 0.1,
+      "method": "mean",
+      "path": "impute_online_MNAR_mean_rate10.npz",
+      "file_bytes": 5783259,
+      "test_array_sha256": "5d3811a16c6f2b0fbeae09ec4b2afe52833c43abb8eca3cbcddfdd150e7d0e19",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MNAR",
+      "rate": 0.1,
+      "method": "spline",
+      "path": "impute_online_v3_MNAR_spline_rate10.npz",
+      "file_bytes": 25780391,
+      "test_array_sha256": "b630ade4caf69d021f0e4367c8284577bb67a7f1b208417ee48f90c62d713319",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MNAR",
+      "rate": 0.1,
+      "method": "knn",
+      "path": "impute_online_MNAR_knn_rate10.npz",
+      "file_bytes": 5927585,
+      "test_array_sha256": "44e502303791372e690b5ba7a41606691fab70dd8bd3317d22d5b27a8248de8d",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MNAR",
+      "rate": 0.1,
+      "method": "brits",
+      "path": "impute_online_MNAR_brits_rate10.npz",
+      "file_bytes": 40767414,
+      "test_array_sha256": "5b015b16cf428eebf27fae76af6336018dc957d5a907e1e82e8b3a84c58388f7",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MNAR",
+      "rate": 0.1,
+      "method": "saits",
+      "path": "impute_online_MNAR_saits_rate10.npz",
+      "file_bytes": 46392618,
+      "test_array_sha256": "540a39da53d40ba8c9d0d547eac0d9cb75dee6d0ad8a4cf72b51e68902ddf189",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MNAR",
+      "rate": 0.3,
+      "method": "mean",
+      "path": "impute_online_MNAR_mean_rate30.npz",
+      "file_bytes": 5386705,
+      "test_array_sha256": "f43a86aacbd7f0cc5892a11f498f229de03559e26a42c9a0e2fde88466de65c3",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MNAR",
+      "rate": 0.3,
+      "method": "spline",
+      "path": "impute_online_v3_MNAR_spline_rate30.npz",
+      "file_bytes": 67001106,
+      "test_array_sha256": "69f484f79589dfd626e83964608892e748c12b3b0d43592e1f9417aed6c48aa5",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MNAR",
+      "rate": 0.3,
+      "method": "knn",
+      "path": "impute_online_MNAR_knn_rate30.npz",
+      "file_bytes": 6221351,
+      "test_array_sha256": "b39b2e7370b910ed91e62aaeebbd84bf6dd89062fc964a87703443691f714b24",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MNAR",
+      "rate": 0.3,
+      "method": "brits",
+      "path": "impute_online_MNAR_brits_rate30.npz",
+      "file_bytes": 109914795,
+      "test_array_sha256": "3d7e4c8f6796c5708e28be71d72e77307fedb2eb2ae14c8bb0ca47d20531c8e7",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MNAR",
+      "rate": 0.3,
+      "method": "saits",
+      "path": "impute_online_MNAR_saits_rate30.npz",
+      "file_bytes": 121019328,
+      "test_array_sha256": "08ce9ee339a65999e6aebb94895a670781893cbfec550c52c71986c831c25d1b",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MNAR",
+      "rate": 0.5,
+      "method": "mean",
+      "path": "impute_online_MNAR_mean_rate50.npz",
+      "file_bytes": 4720873,
+      "test_array_sha256": "c6a425245a4eb6673f706c546b57015cd7b8e1af8187317182382c0c9ea07ac3",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MNAR",
+      "rate": 0.5,
+      "method": "spline",
+      "path": "impute_online_v3_MNAR_spline_rate50.npz",
+      "file_bytes": 86759938,
+      "test_array_sha256": "b409f7c57176ecbeafd923b4d78bf1eea4ff7c9390b4da0b7cce785162f3fc7b",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MNAR",
+      "rate": 0.5,
+      "method": "knn",
+      "path": "impute_online_MNAR_knn_rate50.npz",
+      "file_bytes": 6344421,
+      "test_array_sha256": "4b554d30d7586fe2d78a38419e2187d586f4a653fbc29a29fb9c03d8d821e308",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MNAR",
+      "rate": 0.5,
+      "method": "brits",
+      "path": "impute_online_MNAR_brits_rate50.npz",
+      "file_bytes": 177883601,
+      "test_array_sha256": "d44b4a9cbf47eaee240ff9f0d30281d4a40a08c1c993c47a688ad45d761a3589",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MNAR",
+      "rate": 0.5,
+      "method": "saits",
+      "path": "impute_online_MNAR_saits_rate50.npz",
+      "file_bytes": 188394694,
+      "test_array_sha256": "e784bba39987740c71986c709123b2ea25563981e0560d4d70bebf9a005831d1",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MNAR",
+      "rate": 0.7,
+      "method": "mean",
+      "path": "impute_online_MNAR_mean_rate70.npz",
+      "file_bytes": 3906006,
+      "test_array_sha256": "f7ddc14fa29d79b2bfa43e55963235acb7fddd5407b582f02d333ebb0e2a333f",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MNAR",
+      "rate": 0.7,
+      "method": "spline",
+      "path": "impute_online_v3_MNAR_spline_rate70.npz",
+      "file_bytes": 73444308,
+      "test_array_sha256": "88587801fabeef43fb84498f0c886f19054bca57181237f07f9f7e2eec844389",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MNAR",
+      "rate": 0.7,
+      "method": "knn",
+      "path": "impute_online_MNAR_knn_rate70.npz",
+      "file_bytes": 6377599,
+      "test_array_sha256": "152b06eeb3d0e6787705a018528909d199fddc5390106f9ed2bf5dd9371a315d",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MNAR",
+      "rate": 0.7,
+      "method": "brits",
+      "path": "impute_online_MNAR_brits_rate70.npz",
+      "file_bytes": 241991240,
+      "test_array_sha256": "28a0c9f6b9903ace9b48571e2f870d92c8841992c0422fbbd3330f8ead534e8e",
+      "skipped_unreadable_candidates": []
+    },
+    {
+      "dataset": "Weather",
+      "mode": "MNAR",
+      "rate": 0.7,
+      "method": "saits",
+      "path": "impute_online_MNAR_saits_rate70.npz",
+      "file_bytes": 247909518,
+      "test_array_sha256": "cf8681657d45abc063939bb0b8bd3e01706f1f06b66f244fae6e063d28652428",
+      "skipped_unreadable_candidates": []
+    }
+  ],
+  "issues": [],
+  "expected_upstream_cache_count": 240,
+  "cache_count": 240,
+  "signal_rows": 960,
+  "ie_checks_passed": 960,
+  "all_ie_checks_pass": true,
+  "bootstrap_replicates": 2000,
+  "bootstrap_seed": 42,
+  "grouping": "dataset x missing_mode x missing_rate; stratified by dataset for bootstrap",
+  "folds": 5,
+  "manuscript_modified": false,
+  "github_modified": false,
+  "primary_metrics": [
+    "delta_roughness_distortion",
+    "delta_acf_distortion"
+  ],
+  "categorical_controls": [
+    "dataset",
+    "model",
+    "impute_method",
+    "missing_mode",
+    "missing_rate",
+    "pred_len"
+  ],
+  "numeric_baseline": [
+    "delta_ie"
+  ],
+  "trial_status": "Exploratory result only; not inserted into the manuscript or published to GitHub",
+  "independent_loop_metric_check": "Passed for Mean and SAITS on ETTh1/MCAR/30%/horizon96; NumPy corrcoef and explicit loops agree to 1e-10"
+}

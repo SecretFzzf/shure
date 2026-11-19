@@ -96,51 +96,50 @@ model and imputation method.*
 
 ## Reproduce the analyses
 
-Clone the repository and install the analysis dependencies:
+Clone the repository and install the analysis dependencies.
 
-```bash
+```sh
 git clone https://github.com/SecretFzzf/shure.git
-cd shure/analysis_support_upload
-python -m pip install -r requirements.txt
+cd shure
+python -m pip install -r analysis_support_upload/requirements.txt scipy
+git archive --format=zip --output=../shure_revision_inputs.zip HEAD
 ```
 
-Run the analyses in this order:
+From the repository root, reproduce the revision analyses from the archived
+metrics and diagnostics. The ZIP created above supplies the same analytical
+inputs as Online Resource 1.
 
-```bash
-# Transmission, inversion, threshold sensitivity, and seed-level summaries
-python 02_transmission_analysis/recompute_three_seeds.py
-
-# Forecasting-seed consistency by model
-python 02_transmission_analysis/recompute_model_seed_consistency.py
-
-# Influence of each dataset on pooled summaries
-python 02_transmission_analysis/recompute_dataset_influence.py
-
-# Imputer-selection policies and matched-missingness comparisons
-python 03_selection_analysis/recompute_selection.py
-
-# Figures 1-4
-python 04_figure_generation/plot_three_seeds.py
+```sh
+python analysis_support_upload/07_revision_analysis/recompute_revision.py --esm ../shure_revision_inputs.zip --mask62-input analysis_support_upload/07_revision_analysis/mask62_input.csv --out ../shure_reproduced/revision
+python analysis_support_upload/08_validation_temporal/recompute_server_followup.py --esm ../shure_revision_inputs.zip --inputs analysis_support_upload/08_validation_temporal --out ../shure_reproduced/validation
+python analysis_support_upload/09_revision_checks/recompute_paired_and_signal.py --out ../shure_reproduced/paired
+python analysis_support_upload/04_figure_generation/plot_three_seeds.py --only-figure-one --out ../shure_reproduced/figures
+python analysis_support_upload/09_revision_checks/plot_single_column_figures.py --out ../shure_reproduced/figures
 ```
 
-The scripts resolve paths relative to their own locations and write regenerated
-outputs beside the scripts. Dependencies are NumPy, pandas, and Matplotlib.
+The first command produces the revised Figure 2 alongside its tables.
+The final manuscript figures are in [04_figure_generation](analysis_support_upload/04_figure_generation/).
+See the [reproduction guide](analysis_support_upload/README.md) for the
+original analysis commands, the final manuscript table map and the inputs
+needed to rerun the temporal block bootstrap.
 
 ## Repository contents
 
-```text
-analysis_support_upload/
-├── 01_raw_data/                 # Recorded metrics from 8,640 experimental runs
-├── 02_transmission_analysis/    # Transmission, inversion, and seed analyses
-├── 03_selection_analysis/       # Selection policies and matched missingness
-├── 04_figure_generation/        # Plotting code and Figures 1-4
-├── 05_validation_manifests/     # Checksums, provenance, and reproduction checks
-├── README.md                   # Detailed reproduction guide and output mapping
-└── requirements.txt
-```
+| Directory | Contents |
+| --- | --- |
+| [01_raw_data](analysis_support_upload/01_raw_data/) | Metrics from the original 8,640 runs and configuration audit |
+| [02_transmission_analysis](analysis_support_upload/02_transmission_analysis/) | Transmission, inversion, seed checks and dataset influence |
+| [03_selection_analysis](analysis_support_upload/03_selection_analysis/) | Imputer selection, regret and matched-missingness checks |
+| [04_figure_generation](analysis_support_upload/04_figure_generation/) | Final manuscript figures and Figure 1 plotting script |
+| [05_validation_manifests](analysis_support_upload/05_validation_manifests/) | Historical checksums and provenance for the original analysis |
+| [06_signal_diagnostics](analysis_support_upload/06_signal_diagnostics/) | Signal summaries and archived out-of-fold predictions |
+| [07_revision_analysis](analysis_support_upload/07_revision_analysis/) | Logistic regression, threshold and mask sensitivity, and Figure 2 generation |
+| [08_validation_temporal](analysis_support_upload/08_validation_temporal/) | Validation metric comparison and temporal interval results |
+| [09_revision_checks](analysis_support_upload/09_revision_checks/) | Coarser paired tests, signal sensitivities and Figures 3–4 generation |
 
-See the [detailed reproduction guide](analysis_support_upload/README.md) for the
-mapping between scripts, output files, and manuscript tables and figures.
+The public signal audit retains file basenames and checksums. The temporal
+intervals are supplied as archived outputs. Rerunning those intervals requires
+the original per-origin error arrays.
 
 ## Data and code availability
 

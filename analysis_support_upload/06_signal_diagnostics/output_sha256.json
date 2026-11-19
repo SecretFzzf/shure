@@ -1,0 +1,19 @@
+{
+  "independent_metric_check.json": "1af39cd51288d04f499e10b9114bc4db5ee8d57b79e3a7414405be49847dc495",
+  "README.md": "0d565c8ef330cae442bade500e454dad9fe64728dabccf33ada64b37fdd413cd",
+  "requirements.txt": "180b89e37e1509ac65c5be90ab3d017183458b75a9703df058f0618906a8c25f",
+  "run_signal_diagnostics.py": "dd5ef96842b00fbc00a9bc620fe5ea78fd49fbef930719b7c5fe2948b1f52af2",
+  "signal_associations.csv": "63e789aa5c021c040406b45f55a29cc6dd88f464c264ecb3e8d11efe479fa4b4",
+  "signal_contrasts_2304.csv": "0242d4d63cf7590ea5e4ccf5f6e08aad95405c8ee6ff64a7a9b8225647cbd43c",
+  "signal_dataset_influence.csv": "b72c7d8f5d537ab0878f13a0c19c305bd64843c50ab1a26334bae6f10b9976d6",
+  "signal_diagnostic_audit.json": "44a7dadd1a89208d152e781b58b81415b63958146de37b165013a0576e4edf7b",
+  "signal_diagnostics.png": "e42d9f6d9fce5b2ea23a8576c8f66aaef21ba1718f501dbbe141ef1b4971cad2",
+  "signal_ie_reproduction.csv": "29ee9b431676632583ea7d51eccb60ba72541ca784e407efa4b1afe524180eca",
+  "signal_improvement_reference_groups.csv": "2c852cda92af0cfb96b41e7c3af33d88c67d58030312a6a75a6c7e9a96b368a8",
+  "signal_incremental_fit.csv": "9f2c82f5c7a5dc97cd9bb9e8b42c535da4ac26cfda2c02343446cc988cc362ff",
+  "signal_inversion_groups.csv": "49e8d25e1a7e832671fc8038561a1d5cf33aa66527bb2d2409906337439c1cca",
+  "signal_metrics_960.csv": "d861b0b7f377a5b19e6fc9a22e841d53adfecc982cf590e74456a32f784ad8eb",
+  "signal_oof_predictions.csv": "233d9b9c2121bf1205da43c8e2af14a425d7bf4269febb593743fff988c9edf4",
+  "signal_stratified_correlations.csv": "73d0835afc1b96c0501dd0653489bf531c1b1946169744fcc1c82d49a36cd288",
+  "signal_summary.png": "1d45cf9f784937c2906d905549bbea8def432025b0160e029a2519800eb8027c"
+}

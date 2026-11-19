@@ -1,0 +1,18 @@
+[
+  {
+    "method": "mean",
+    "roughness_manual": 3.2079791008230667,
+    "roughness_saved": 3.207979100823068,
+    "acf_manual": 0.399950415746173,
+    "acf_saved": 0.3999504157461729,
+    "passed": true
+  },
+  {
+    "method": "saits",
+    "roughness_manual": 0.8543149551587611,
+    "roughness_saved": 0.8543149551587611,
+    "acf_manual": 0.15440966965019112,
+    "acf_saved": 0.1544096696501911,
+    "passed": true
+  }
+]
