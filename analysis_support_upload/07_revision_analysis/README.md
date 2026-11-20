@@ -42,3 +42,25 @@ grouped-fold predictions' R-squared summaries.
   diagnostics and within-task differences among contrasts with lower IE.
 - `mask62.json` reports the ETTh1 comparison for each mask's own valid
   set and the intersection of the two valid sets.
+
+## ETTh1 learned-imputer seed sensitivity
+
+The new BRITS and SAITS records use forecasting seed 42 and the original
+imputer budgets (BRITS 20/6 and SAITS 24/8). Masks and imputer-training
+seeds are (42, 123), (42, 2026), and (62, 42). The archived (42, 42)
+combination is the baseline. The new predictive data loaders use two
+workers and the archived reference uses twelve.
+
+- `r26_seed_sensitivity_run_metrics.csv` contains the 864 new run records
+  with metrics, seed settings and window counts.
+- `r26_seed_sensitivity_summary.csv` covers all jointly valid contrasts and
+  the BRITS and SAITS subsets. Changed labels count gains plus losses.
+- `recompute_r26.py` matches each run to archived Mean under the same mask.
+  It uses feature-macro MAE, `abs(delta_ie) > 0.01`, and the intersection
+  of valid contrasts under the baseline and each alternative.
+
+From the parent of `analysis_support_upload/`, run:
+
+```sh
+python analysis_support_upload/07_revision_analysis/recompute_r26.py --out reproduced_r26.csv
+```

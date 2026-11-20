@@ -1,7 +1,8 @@
 # Online Resource 1
 
-This archive contains the 8,640 original run records, the analysis scripts,
-and the figure assets used in the revised manuscript. These records support
+This archive contains the 8,640 original run records, 864 additional ETTh1
+forecasting records, analysis scripts, and the figure assets used in the
+revised manuscript. These records support
 numerical reproduction. The original series, historical preprocessing and
 model-training implementations, imputed input windows and checkpoints are
 outside this release. SWaT must be obtained from its provider under the
@@ -14,7 +15,7 @@ provider's data access conditions.
 | 03_selection_analysis | Selection, regret and matched-mechanism comparisons |
 | 04_figure_generation | Final figures and the original plotting code |
 | 06_signal_diagnostics | Archived signal measures, held-out predictions and diagnostic code |
-| 07_revision_analysis | Revision statistics, adjusted logistic regression, ETTh1 mask check and updated Figure 2 recipe |
+| 07_revision_analysis | Revision statistics, adjusted logistic regression, ETTh1 upstream seed checks and updated Figure 2 recipe |
 | 08_validation_temporal | Validation selector inputs and summaries, reconstructed contrast labels and temporal intervals |
 | 09_revision_checks | Coarser paired tests, signal sensitivities and updated single-column figure scripts |
 
@@ -75,6 +76,7 @@ latest script and derived evidence.
 | Table 21 · Signal diagnostics by architecture | [signal_by_model.csv](07_revision_analysis/signal_by_model.csv) |  |
 | Table 22 · Full adjusted logistic regression | [adjusted_logistic.csv](07_revision_analysis/adjusted_logistic.csv) |  |
 | Table 23 · Paired tests with 48 blocks | [paired_inversion_48blocks.csv](09_revision_checks/paired_inversion_48blocks.csv) | Selection comparisons in paired_selection_48blocks.csv |
+| Table 24 · ETTh1 upstream seed checks | [r26_seed_sensitivity_summary.csv](07_revision_analysis/r26_seed_sensitivity_summary.csv) | Compare against the corresponding Mean under each mask |
 | Figure 1 | [fig1.png](04_figure_generation/fig1.png) | Final manuscript asset |
 | Figure 2 | [fig2.png](04_figure_generation/fig2.png) | Final manuscript asset |
 | Figure 3 | [fig3.png](04_figure_generation/fig3.png) | Final manuscript asset |
